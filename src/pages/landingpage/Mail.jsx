@@ -57,28 +57,14 @@ const Mail = () => {
                   />
                 </div>
 
-                <div className="">
-                  <div htmlFor="message" className="text-[16px] font-normal">
-                    Message
-                  </div>
-                  <Field
-                    as="textarea"
-                    name="message"
-                    className="w-full border-2 rounded-md resize-none textarea-class "
-                  />
-                  <ErrorMessage
-                    name="message"
-                    component="div"
-                    className="error"
-                  />
-                </div>
+                
 
                 <button
                   type="submit"
-                  className="bg-[#E93C24] rounded-lg  p-4 text-white"
+                  className="bg-[#E93C24] rounded  p-2 text-white text-sm"
                   disabled={isSubmitting}
                 >
-                  Submit
+                  Send Message
                 </button>
               </Form>
             )}
