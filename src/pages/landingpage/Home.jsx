@@ -3,6 +3,7 @@ import Hero from "./Hero";
 import Spiritual from "./Spiritual";
 import Journey from "./Journey";
 import Mail from "./Mail";
+import Footer from "../../components/footer";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <Spiritual />
       <Journey />
       <Mail />
+     
     </div>
   );
 };

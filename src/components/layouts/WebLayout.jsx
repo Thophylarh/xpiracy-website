@@ -1,11 +1,12 @@
 import { Outlet } from "react-router-dom";
 
 import Navbar from "../navbar";
+import Footer from "../footer";
 
 const WebLayout = () => {
   return (
     <>
-      <div className="w-full h-screen text-black  home-bg">
+      <div className="w-full h-screen text-black home-bg">
         <div className="">
           <div className="">
             <Navbar />
@@ -14,7 +15,9 @@ const WebLayout = () => {
         <main className="relative z-20 home-bg font-poppins">
           <Outlet />
         </main>
-        <footer className="home-bg "></footer>
+        <footer className="home-bg ">
+          <Footer />
+        </footer>
       </div>
     </>
   );
