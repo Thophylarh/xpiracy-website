@@ -1,39 +1,42 @@
-import {  Pattern, Yeshua, zig } from "../../assets/png";
+import { Link } from "react-router-dom";
+import { Pattern, Yeshua, mealImg, zig } from "../../assets/png";
 import { Lightbible } from "../../assets/svgs";
 
 const Spiritual = () => {
   return (
-    <div className="cp-container w-full">
-      <div className="flex items-center justify-between w-11/12 ">
-        <div className="relative ">
+    <div className="w-full">
+      <div className="items-center justify-between md:w-11/12 md:flex">
+        <div className="">
           <div>
-            <img src={Pattern} alt="" className="" />
-          </div>
-          <div className="absolute bottom-[10%] left-[24%]">
-            <img src={Yeshua} className="img-border" alt="" />
-          </div>
-          <div className="absolute top-[10%] left-[23%]">
-            <img src={Lightbible} className="rounded-md p-2" alt="" />
+            <img
+              src={mealImg}
+              alt=""
+              className="md:w-[800px] md:h-[600px] w-[600px] h-[400px] md:block hidden "
+            />
           </div>
         </div>
-        <div className="relative space-y-6">
-          <div>
-            <h3 className="text-6xl font-normal text-white">
-              GET <br />
-              SPIRITUAL <br />
-              MEAL PLANNER
+        <div className="px-4 space-y-6 md:px-0">
+          <div className="mt-8">
+            <h3 className="text-4xl md:text-6xl font-normal text-white w-[400px]">
+              GET SPIRITUAL MEAL PLANNER
             </h3>
-            <img src={zig} className="w-14 h-14 " alt="" />
+            <img src={zig} className="w-8 h-8 md:w-14 md:h-14 " alt="" />
           </div>
 
-          <p className="text-sm text-white">
-            Christspiracy app is the home of record-shattering stories <br />{" "}
-            that amplify light. In the Christspiracy app users can <br /> watch
-            full episodes, cast to their television, pay-it-forward <br />
-            to fund future seasons of shows they love and buy official
-            merchandise.
+          <p className="text-sm text-white md:w-[350px] ">
+            Elevate your mind, nourish your body, and rejuvenate your spirit
+            with our plant-based Spiritual Meal Planner – your personal guide to
+            holistic well-being.
           </p>
-          <button className="text-white">Get Meal Planner</button>
+          <div className="">
+          <a
+            href="https://spiritualmealplanner.com/"
+            className="text-white bg-[#E93C24] rounded p-2 "
+          >
+            Get Your Meal Planner
+          </a>
+          </div>
+         
         </div>
       </div>
     </div>

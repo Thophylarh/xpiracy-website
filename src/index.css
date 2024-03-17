@@ -74,7 +74,50 @@ body {
   .textarea-class {
     width: 280px;
     height: 214px;
- 
-   
+  }
+
+  .modal-nav {
+    width: 100vw;
+    height: 100vh;
+    background: #e8eaff44;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100000;
+  }
+
+  .modal-container {
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    animation: slidedown;
+    animation-duration: 350ms;
+    animation-timing-function: ease;
+  }
+  .close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #b5afaf;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  @keyframes slidedown {
+    from {
+      left: -200px;
+    }
+    to {
+      left: 0;
+    }
   }
 }

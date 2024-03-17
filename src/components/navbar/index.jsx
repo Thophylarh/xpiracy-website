@@ -1,48 +1,41 @@
-import React from "react";
-import Logo from "../../assets/svgs/logo.svg"; // Adjust the path to your Logo component
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import MenuIcon from "@mui/icons-material/Menu";
+import NavModal from "../modals/NavModal";
+import logo from "../../assets/svgs/logo.svg";
 
-const Navbar = () => {
+const NavBar = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
   return (
-    <div className=" w-full">
-      <div className="flex items-center justify-between mx-auto w-11/12 py-4">
+    <div className="">
+      <div className="flex items-center justify-between w-11/12 py-2 mx-auto ">
+        <div className="">
+          <img src={logo} alt="" />
+        </div>
+
         <div>
-          <img src={Logo} className="w-[70px] h-[70px]" alt="" />{" "}
-        </div>
-        <div className="flex items-center gap-x-4 text-white">
-          <div>
-            <Link to="!#" className="">
-              Home
-            </Link>
-          </div>
-          <div>
-            <Link to="!#" className="">
-              Pay It Forward
-            </Link>
-          </div>
-          <div>
-            <Link to="!#" className="">
-              Get Meal Planner
-            </Link>
-          </div>
-          <div>
-            <Link to="!#" className="">
-              Join The Movement
-            </Link>
-          </div>
-        </div>
-        <div className="text-white flex items-center gap-x-4">
-          <div>
-            <Link to="!#">Watch Trailer</Link>
-            <img src="" alt="" />
-          </div>
-          <div>
-            <button>Claim Ticket</button>
+          <div
+            className="border-2 rounded-full p-2 text-white border-[#3D3D3D] cursor-pointer"
+            onClick={toggleModal}
+          >
+            <MenuIcon style={{ color: "#E93C24" }} />
           </div>
         </div>
       </div>
+      <div className="border-b-2 border-[#3D3D3D]"></div>
+
+      {/* Render the Modal component when isModalOpen is true */}
+      {isModalOpen && (
+        <div>
+          <NavModal isOpen={isModalOpen} closeDrawer={toggleModal} />
+        </div>
+      )}
     </div>
   );
 };
 
-export default Navbar;
+export default NavBar;
