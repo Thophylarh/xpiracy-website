@@ -5,6 +5,8 @@ import Hero from '../pages/landingpage/Hero';
 import Home from '../pages/landingpage/Home';
 import SingleSuccess from '../pages/landingpage/SingleSuccess';
 
+import MultipleEmailPayment from '../pages/MultipleEmailPayment';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -15,7 +17,7 @@ const router = createBrowserRouter([
         children: [
           { element: <Home />, path: '/' },
           { element: <SingleSuccess />, path: '/singlePayment' },
-          { element: <multipleSuccessPayment />, path: '/multiplePayment' },
+          { element: <MultipleEmailPayment />, path: '/multiPayment' },
         ],
       },
     ],

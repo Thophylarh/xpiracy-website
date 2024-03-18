@@ -9,9 +9,10 @@ import { AppDataContext } from '../../context/AppContext';
 import NavModal from '../../components/modals/NavModal';
 import ClaimModal from '../../components/modals/ClaimModal';
 import PifModal from '../../components/modals/PifModal';
-import SingleSuccessModal from '../components/modals/SingleSuccessModal';
+import SingleSuccessModal from '../../components/modals/SingleSuccessModal';
+import { useNavigate } from 'react-router-dom';
 
-const multipleSuccessPayment = () => {
+const MultipleSuccessPayment = () => {
   const {
     isModalOpen,
     toggleModal,
@@ -20,10 +21,14 @@ const multipleSuccessPayment = () => {
     handlePifModalOpen,
     handlePifModalClose,
   } = useContext(AppDataContext);
+  const navigate = useNavigate();
 
   const [open, setOpen] = React.useState(true);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+    navigate('/');
+  };
 
   return (
     <div>
@@ -52,4 +57,4 @@ const multipleSuccessPayment = () => {
   );
 };
 
-export default multipleSuccessPayment;
+export default MultipleSuccessPayment;
