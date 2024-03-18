@@ -25,7 +25,7 @@ const NavModal = ({ isOpen, closeDrawer }) => {
       <div className="modal-nav h-[100vh]">
         <div className="modal-container bg-[#0f0f10]">
           <div className="w-11/12 mx-auto ">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between py-2">
               <div className="">
                 <img src={Logo} alt="" />
               </div>
