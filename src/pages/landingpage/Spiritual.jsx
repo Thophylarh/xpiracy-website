@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
-import { Pattern, Yeshua, mealImg, zig } from "../../assets/png";
-import { Lightbible } from "../../assets/svgs";
+import { Link } from 'react-router-dom';
+import { Pattern, Yeshua, mealImg, zig } from '../../assets/png';
+import { Lightbible } from '../../assets/svgs';
+import { handleOpenInNewTab } from '../../utils/handleOpenInNewTab';
 
 const Spiritual = () => {
   return (
@@ -28,14 +29,16 @@ const Spiritual = () => {
             with our plant-based Spiritual Meal Planner – your personal guide to
             holistic well-being.
           </p>
-          <div className="">
-            <a
-              href="https://spiritualmealplanner.com/"
-              className="text-white bg-[#E93C24] rounded p-2 hover:bg-[#f86d5a] "
-            >
-              Get Your Meal Planner
-            </a>
-          </div>
+
+          <Link
+            to=""
+            onClick={() =>
+              handleOpenInNewTab('https://spiritualmealplanner.com/')
+            }
+            className="text-white bg-[#E93C24] rounded p-2 hover:bg-[#f86d5a] "
+          >
+            Get Meal Planner
+          </Link>
         </div>
       </div>
     </div>
