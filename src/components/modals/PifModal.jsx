@@ -1,25 +1,29 @@
-import React, { useState } from "react";
-import { Modal, Box } from "@mui/material";
-import Slider from "@mui/material/Slider";
-import { love, users } from "../../assets/svgs";
-import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
-import BookModal from "./BookModal";
+import React, { useState } from 'react';
+import { Modal, Box } from '@mui/material';
+import Slider from '@mui/material/Slider';
+import { love, users } from '../../assets/svgs';
+import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
+import BookModal from './BookModal';
+import useCreateAccount from '../../hooks/usePayment';
 
 const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
   width: 350,
-  bgcolor: "background.paper",
+  bgcolor: 'background.paper',
   boxShadow: 24,
   borderRadius: 5,
   p: 4,
 };
 
-const PifModal = ({ open, handleClose,handleBookModalOpen }) => {
+const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
   const [sliderValue, setSliderValue] = useState(70);
   const [bookTicketModalOpen, setBookTicketModalOpen] = useState(false);
+
+  const { makePostRequest } = useCreateAccount();
+
   const handleSliderChange = (event, newValue) => {
     setSliderValue(newValue);
   };
@@ -54,7 +58,7 @@ const PifModal = ({ open, handleClose,handleBookModalOpen }) => {
 
               <p className="text-xs text-[#565453] ">
                 Gift free tickets for someone else to watch Christspiracy in
-                theaters.{" "}
+                theaters.{' '}
               </p>
             </div>
 
@@ -68,15 +72,15 @@ const PifModal = ({ open, handleClose,handleBookModalOpen }) => {
                   aria-label="Small"
                   valueLabelDisplay="auto"
                   sx={{
-                    color: "#E93C24",
-                    "& .MuiSlider-thumb": {
-                      backgroundColor: "#E93C24",
+                    color: '#E93C24',
+                    '& .MuiSlider-thumb': {
+                      backgroundColor: '#E93C24',
                     },
-                    "& .MuiSlider-track": {
-                      backgroundColor: "#E93C24",
+                    '& .MuiSlider-track': {
+                      backgroundColor: '#E93C24',
                     },
-                    "& .MuiSlider-rail": {
-                      backgroundColor: "#E93C24",
+                    '& .MuiSlider-rail': {
+                      backgroundColor: '#E93C24',
                     },
                   }}
                 />
@@ -109,7 +113,7 @@ const PifModal = ({ open, handleClose,handleBookModalOpen }) => {
                   onClick={handleBookModalOpen}
                 >
                   <ConfirmationNumberIcon
-                    sx={{ color: "#565453", fontSize: "18px" }}
+                    sx={{ color: '#565453', fontSize: '18px' }}
                   />
                   <p className="text-xs text-[#565453]">Book Ticket</p>
                 </button>
