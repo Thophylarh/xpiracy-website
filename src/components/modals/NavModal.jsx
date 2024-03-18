@@ -1,20 +1,16 @@
-import React, { useState } from "react";
-import DrawerWrapper from "../wrapper/Wrapper";
-import { Logo } from "../../assets/svgs";
-import { Link } from "react-router-dom";
-import ClaimModal from "./ClaimModal"; // Import the ClaimModal component
+import React, { useContext, useState } from 'react';
+import DrawerWrapper from '../wrapper/Wrapper';
+import { Logo } from '../../assets/svgs';
+import { Link } from 'react-router-dom';
+import ClaimModal from './ClaimModal'; // Import the ClaimModal component
+import { AppDataContext } from '../../context/AppContext';
 
 const NavModal = ({ isOpen, closeDrawer }) => {
-  const [claimModalOpen, setClaimModalOpen] = useState(false); // State to control the ClaimModal
+  const { setIsModalOpen, setClaimModalOpen } = useContext(AppDataContext);
 
- 
   const handleClaimTicketClick = () => {
+    setIsModalOpen(false);
     setClaimModalOpen(true);
-  };
-
- 
-  const handleCloseClaimModal = () => {
-    setClaimModalOpen(false);
   };
 
   return (
@@ -39,7 +35,7 @@ const NavModal = ({ isOpen, closeDrawer }) => {
             <Link to="" className="hover:text-[#E93c24]">
               Get Meal Planner
             </Link>
-          
+
             <Link
               to=""
               className="hover:text-[#E93c24]"
@@ -50,8 +46,8 @@ const NavModal = ({ isOpen, closeDrawer }) => {
           </div>
         </div>
       </div>
-   
-      <ClaimModal open={claimModalOpen} handleClose={handleCloseClaimModal} />
+
+      {/* <ClaimModal open={claimModalOpen} handleClose={handleCloseClaimModal} /> */}
     </DrawerWrapper>
   );
 };
