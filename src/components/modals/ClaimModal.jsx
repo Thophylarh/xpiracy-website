@@ -214,7 +214,7 @@ const ClaimModal = () => {
                   style={{
                     marginTop: '1rem',
                     backgroundColor: '#E93C24',
-                    borderRadius: '5px',
+                    borderRadius: '40px',
                     color: 'white',
                     padding: '0.5rem 2rem',
                     border: 'none',

@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react';
-import DrawerWrapper from '../wrapper/Wrapper';
-import { Logo } from '../../assets/svgs';
-import { Link } from 'react-router-dom';
-import ClaimModal from './ClaimModal'; // Import the ClaimModal component
-import { AppDataContext } from '../../context/AppContext';
-import { handleOpenInNewTab } from '../../utils/handleOpenInNewTab';
+import React, { useContext, useState } from "react";
+import DrawerWrapper from "../wrapper/Wrapper";
+import { Logo } from "../../assets/svgs";
+import { Link } from "react-router-dom";
+import ClaimModal from "./ClaimModal"; // Import the ClaimModal component
+import { AppDataContext } from "../../context/AppContext";
+import { handleOpenInNewTab } from "../../utils/handleOpenInNewTab";
 
 const NavModal = ({ isOpen, closeDrawer }) => {
   const { setIsModalOpen, setClaimModalOpen, handlePifModalOpen } =
@@ -39,14 +39,14 @@ const NavModal = ({ isOpen, closeDrawer }) => {
             <Link
               onClick={handlePaayItFwdModal}
               to=""
-              className="hover:text-[#E93c24] text-4xl "
+              className="hover:text-[#E93c24] text-2xl md:text-4xl "
             >
               Pay It Forward
             </Link>
             <Link
               to=""
               onClick={() =>
-                handleOpenInNewTab('https://spiritualmealplanner.com/')
+                handleOpenInNewTab("https://spiritualmealplanner.com/")
               }
               className="hover:text-[#E93c24] text-2xl md:text-4xl "
             >
@@ -55,7 +55,7 @@ const NavModal = ({ isOpen, closeDrawer }) => {
 
             <Link
               to=""
-              className="hover:text-[#ed7363] text-2xl md:text-4xl  bg-[#E93c24] text-white py-2 px-6 rounded"
+              className="hover:text-[#ed7363] text-2xl md:text-4xl  bg-[#E93c24] text-white py-2 px-6 rounded-[40px]"
               onClick={handleClaimTicketClick}
             >
               Claim Ticket

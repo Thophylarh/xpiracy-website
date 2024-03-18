@@ -24,7 +24,7 @@ const Journey = () => {
               onClick={() =>
                 handleOpenInNewTab('https://www.skool.com/christspiracy/about')
               }
-              className="text-white bg-[#E93C24] cursor-pointer rounded p-2 hover:bg-[#f86d5a]"
+              className="text-white bg-[#E93C24] cursor-pointer rounded-[40px] p-4 hover:bg-[#f86d5a]"
             >
               Join Movement Now
             </Link>

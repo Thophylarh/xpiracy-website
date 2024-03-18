@@ -143,7 +143,7 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
             ) : (
               <button
                 onClick={handleMakePayment}
-                className="bg-[#E93C24] cursor-pointer text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-3xl"
+                className="bg-[#E93C24] cursor-pointer text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-[40px]"
               >
                 <img src={love} alt="" />
                 <p>Pay it Forward</p>

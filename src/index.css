@@ -21,6 +21,7 @@ p,
 a,
 button {
   font-family: "PPFormula", sans-serif;
+ 
 }
 
 body {
@@ -67,7 +68,7 @@ body {
   }
   .journey-container {
     @apply py-10;
-   
+
     border-radius: 14px;
     background: #1b1b21;
     backdrop-filter: blur(3px);

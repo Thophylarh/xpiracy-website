@@ -68,7 +68,7 @@ const Mail = () => {
             )}
 
             <div className="">
-              <label htmlFor="email" className="text-[16px] font-normal">
+              <label htmlFor="email" className="text-[16px] font-normal text-[#838485] font-ppeiko">
                 Email
               </label>
               <input
@@ -96,7 +96,7 @@ const Mail = () => {
             ) : (
               <button
                 type="submit"
-                className="bg-[#E93C24] hover:bg-[#f86d5a] rounded  p-2 text-white text-sm font-ppeiko "
+                className="bg-[#E93C24] hover:bg-[#f86d5a] rounded-[40px]  p-4 text-white text-sm font-ppeiko "
               >
                 Send Message
               </button>
