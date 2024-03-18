@@ -16,16 +16,18 @@ const Spiritual = () => {
             />
           </div>
         </div>
-        <div className="px-4 space-y-6 md:px-0">
+        <div className="px-4 space-y-4 md:px-0">
           <div className="mt-8">
             <h3 className="text-2xl md:text-6xl font-normal text-white md:w-[500px]">
               GET SPIRITUAL MEAL PLANNER
             </h3>
-            <img src={zig} className="w-8 h-8 md:w-14 md:h-14 " alt="" />
+            <div className="flex items-center justify-end">
+              <img src={zig} className="w-8 h-8 md:w-14 md:h-14  " alt="" />
+            </div>
           </div>
 
           <div>
-            <p className="text-[12px] text-[#d8d6d6] md:w-[350px] mb-6">
+            <p className="text-[12px] text-[#d8d6d6] md:w-[500px] mb-6">
               Elevate your mind, nourish your body, and rejuvenate your spirit
               with our plant-based Spiritual Meal Planner – your personal guide
               to holistic well-being.
