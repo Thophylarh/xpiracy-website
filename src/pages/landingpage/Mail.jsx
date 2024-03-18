@@ -1,27 +1,35 @@
-import { zig } from "../../assets/png";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
+import { zig } from '../../assets/png';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import useCreateNewsLetter from '../../hooks/useCreateNewsLetter';
+import { useContext } from 'react';
+import { AppDataContext } from '../../context/AppContext';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
-    .email("Invalid email address")
-    .required("Email is required"),
-  message: Yup.string()
-    .required("Message is required")
-    .max(250, "Message must be 250 characters or less"),
+    .email('Invalid email address')
+    .required('Email is required'),
 });
-const Mail = () => {
-  const initialValues = {
-    email: "",
-    message: "",
-  };
 
-  const handleSubmit = (values, { resetForm }) => {
-    // Handle form submission here
-    console.log(values);
-    // Reset form fields after submission
-    resetForm();
-  };
+const Mail = () => {
+  const { makePostRequest, loading } = useCreateNewsLetter();
+  const { error, setError, successMessage, setSuccessMessage } =
+    useContext(AppDataContext);
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      message: '',
+    },
+    validationSchema: validationSchema,
+    onSubmit: async (values) => {
+      console.log(values, 'emaill...');
+      const response = await makePostRequest({
+        email: values.email,
+      });
+    },
+  });
+
   return (
     <div className="w-11/12 pb-8 mx-auto md:w-9/12 cp-container">
       <div className="items-center justify-between block md:flex ">
@@ -34,41 +42,48 @@ const Mail = () => {
           </div>
         </div>
         <div className="w-11/12 my-4 md:w-6/12 md:my-0">
-          <Formik
-            initialValues={initialValues}
-            validationSchema={validationSchema}
-            onSubmit={handleSubmit}
+          <form
+            onSubmit={formik.handleSubmit}
+            className="p-8 space-y-4 form-bg"
           >
-            {({ isSubmitting }) => (
-              <Form className="p-8 space-y-4 form-bg">
-                <div className="">
-                  <div htmlFor="email" className="text-[16px] font-normal">
-                    Email
-                  </div>
-                  <Field
-                    type="email"
-                    name="email"
-                    className="w-full p-2 border-2 rounded-md"
-                  />
-                  <ErrorMessage
-                    name="email"
-                    component="div"
-                    className="text-red-500 error"
-                  />
-                </div>
+            <p className="text-[16px] color-[#5cb85c] font-normal">
+              {successMessage}
+            </p>
+            <div className="">
+              <label htmlFor="email" className="text-[16px] font-normal">
+                Email
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                className="w-full p-2 border-2 rounded-md"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.email}
+              />
+              {formik.touched.email && formik.errors.email ? (
+                <div className="text-red-500 error">{formik.errors.email}</div>
+              ) : null}
+            </div>
 
-                
-
-                <button
-                  type="submit"
-                  className="bg-[#E93C24] rounded  p-2 text-white text-sm"
-                  disabled={isSubmitting}
-                >
-                  Send Message
-                </button>
-              </Form>
+            {loading ? (
+              <button
+                type="submit"
+                className="bg-[#808080] rounded  p-2 text-white text-sm"
+                disabled={true}
+              >
+                Submitting...
+              </button>
+            ) : (
+              <button
+                type="submit"
+                className="bg-[#E93C24] rounded  p-2 text-white text-sm"
+              >
+                Send Message
+              </button>
             )}
-          </Formik>
+          </form>
         </div>
       </div>
     </div>
