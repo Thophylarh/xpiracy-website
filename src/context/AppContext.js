@@ -8,6 +8,9 @@ const AppContextProvider = ({ children }) => {
   const [claimModalOpen, setClaimModalOpen] = useState(false);
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
+  const [pifModalOpen, setPifModalOpen] = useState(false);
+  const handlePifModalOpen = () => setPifModalOpen(true);
+  const handlePifModalClose = () => setPifModalOpen(false);
 
   const handleClaimTicketClick = () => {
     setClaimModalOpen(true);
@@ -35,6 +38,10 @@ const AppContextProvider = ({ children }) => {
         setError,
         successMessage,
         setSuccessMessage,
+        pifModalOpen,
+        setPifModalOpen,
+        handlePifModalOpen,
+        handlePifModalClose,
       }}
     >
       {children}

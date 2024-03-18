@@ -1,16 +1,22 @@
-import React, { useContext, useState } from "react";
-import DrawerWrapper from "../wrapper/Wrapper";
-import { Logo } from "../../assets/svgs";
-import { Link } from "react-router-dom";
-import ClaimModal from "./ClaimModal"; // Import the ClaimModal component
-import { AppDataContext } from "../../context/AppContext";
+import React, { useContext, useState } from 'react';
+import DrawerWrapper from '../wrapper/Wrapper';
+import { Logo } from '../../assets/svgs';
+import { Link } from 'react-router-dom';
+import ClaimModal from './ClaimModal'; // Import the ClaimModal component
+import { AppDataContext } from '../../context/AppContext';
 
 const NavModal = ({ isOpen, closeDrawer }) => {
-  const { setIsModalOpen, setClaimModalOpen } = useContext(AppDataContext);
+  const { setIsModalOpen, setClaimModalOpen, handlePifModalOpen } =
+    useContext(AppDataContext);
 
   const handleClaimTicketClick = () => {
     setIsModalOpen(false);
     setClaimModalOpen(true);
+  };
+
+  const handlePaayItFwdModal = () => {
+    setIsModalOpen(false);
+    handlePifModalOpen();
   };
 
   return (
@@ -33,8 +39,9 @@ const NavModal = ({ isOpen, closeDrawer }) => {
               Home
             </Link>
             <Link
+              onClick={handlePaayItFwdModal}
               to=""
-              className="hover:text-[#E93c24] text-2xl md:text-4xl  "
+              className="hover:text-[#E93c24] text-4xl "
             >
               Pay It Forward
             </Link>

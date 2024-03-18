@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { Modal, Box } from "@mui/material";
-import Slider from "@mui/material/Slider";
-import { love, users } from "../../assets/svgs";
-import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
-import BookModal from "./BookModal";
-import useMakePayment from "../../hooks/usePayment";
-import publicIp from "react-public-ip";
+import React, { useState } from 'react';
+import { Modal, Box } from '@mui/material';
+import Slider from '@mui/material/Slider';
+import { love, users } from '../../assets/svgs';
+import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
+import BookModal from './BookModal';
+import useMakePayment from '../../hooks/usePayment';
+import publicIp from 'react-public-ip';
 
 const style = {
   position: "absolute",
@@ -50,19 +50,19 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
   };
 
   const handleMakePayment = async () => {
-    const ipv4 = (await publicIp.v4()) || "";
+    const ipv4 = (await publicIp.v4()) || '';
     const general = `${window.location.protocol}//${window.location.host}`;
     setCurrency2(0);
     const payload = {
       amount: currency,
-      mode: "payment",
+      mode: 'payment',
       numberOfPeople: sliderValue.toString(),
       ipAddress: ipv4,
       successUrl: general,
       cancelUrl: general,
     };
 
-    console.log(payload, "sent...");
+    console.log(payload, 'sent...');
     await makePostRequest(payload);
   };
 
@@ -97,7 +97,7 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
 
               <p className="text-xs text-[#565453] ">
                 Gift free tickets for someone else to watch Christspiracy in
-                theaters.{" "}
+                theaters.{' '}
               </p>
             </div>
 
@@ -111,15 +111,15 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
                   aria-label="Small"
                   valueLabelDisplay="auto"
                   sx={{
-                    color: "#E93C24",
-                    "& .MuiSlider-thumb": {
-                      backgroundColor: "#E93C24",
+                    color: '#E93C24',
+                    '& .MuiSlider-thumb': {
+                      backgroundColor: '#E93C24',
                     },
-                    "& .MuiSlider-track": {
-                      backgroundColor: "#E93C24",
+                    '& .MuiSlider-track': {
+                      backgroundColor: '#E93C24',
                     },
-                    "& .MuiSlider-rail": {
-                      backgroundColor: "#E93C24",
+                    '& .MuiSlider-rail': {
+                      backgroundColor: '#E93C24',
                     },
                   }}
                 />
@@ -143,7 +143,7 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
             ) : (
               <button
                 onClick={handleMakePayment}
-                className="bg-[#E93C24] cursor-pointer text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-3xl hover:bg-[#f86d5a]"
+                className="bg-[#E93C24] cursor-pointer text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-3xl"
               >
                 <img src={love} alt="" />
                 <p>Pay it Forward</p>
@@ -161,13 +161,13 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
                 </p>
               </div>
 
-              <div className="">
+              <div className="p-2 border-2 rounded-md">
                 <button
-                  className="flex items-center justify-center gap-x-2 p-2 border-2 rounded-md w-full"
+                  className="flex items-center justify-center gap-x-2"
                   onClick={handleBookModalOpen}
                 >
                   <ConfirmationNumberIcon
-                    sx={{ color: "#565453", fontSize: "18px" }}
+                    sx={{ color: '#565453', fontSize: '18px' }}
                   />
                   <p className="text-xs text-[#565453]">Book Ticket</p>
                 </button>
