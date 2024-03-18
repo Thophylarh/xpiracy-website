@@ -13,7 +13,7 @@ const NavBar = () => {
   // };
 
   return (
-    <div className="navbar">
+    <div className="">
       <div className="flex items-center justify-between w-11/12 py-2 mx-auto ">
         <div className="">
           <img src={logo} alt="" />
