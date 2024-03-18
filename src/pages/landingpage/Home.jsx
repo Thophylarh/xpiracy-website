@@ -8,10 +8,17 @@ import ScrollToTop from '../../components/ScrollToTop';
 import { AppDataContext } from '../../context/AppContext';
 import NavModal from '../../components/modals/NavModal';
 import ClaimModal from '../../components/modals/ClaimModal';
+import PifModal from '../../components/modals/PifModal';
 
 const Home = () => {
-  const { isModalOpen, toggleModal, claimModalOpen, handleClaimTicketClick } =
-    useContext(AppDataContext);
+  const {
+    isModalOpen,
+    toggleModal,
+    claimModalOpen,
+    pifModalOpen,
+    handlePifModalOpen,
+    handlePifModalClose,
+  } = useContext(AppDataContext);
 
   return (
     <div>
@@ -28,6 +35,7 @@ const Home = () => {
       )}
 
       <ClaimModal open={claimModalOpen} />
+      <PifModal open={pifModalOpen} handleClose={handlePifModalClose} />
     </div>
   );
 };
