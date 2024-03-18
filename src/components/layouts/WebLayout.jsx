@@ -6,7 +6,7 @@ import Footer from "../footer";
 const WebLayout = () => {
   return (
     <>
-      <div className="w-full h-screen text-black home-bg">
+      <div className="w-full h-screen text-black home-bg  ">
         <div className="">
           <div className="">
             <Navbar />

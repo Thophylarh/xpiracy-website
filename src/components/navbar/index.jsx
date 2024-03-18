@@ -28,7 +28,7 @@ const NavBar = () => {
           </div>
         </div>
       </div>
-      <div className="border-b-2 border-[#3D3D3D]"></div>
+     
 
       {/* Render the Modal component when isModalOpen is true */}
       {/* {isModalOpen && (

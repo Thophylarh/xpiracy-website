@@ -33,7 +33,7 @@ const Hero = () => {
         <p className="text-white">Receive extra content, community, resources, and more. </p> */}
         <button
           onClick={handlePifModalOpen}
-          className="bg-[#E93C24] p-2 rounded my-4 text-sm flex items-center gap-x-2"
+          className="bg-[#E93C24] p-2 rounded my-4 text-sm flex items-center gap-x-2 hover:bg-[#f86d5a]"
         >
           <ConfirmationNumberIcon sx={{ color: "#fff", fontSize: "18px" }} />
           Pay it Forward

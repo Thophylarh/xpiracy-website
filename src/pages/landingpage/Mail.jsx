@@ -1,14 +1,14 @@
-import { zig } from '../../assets/png';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import useCreateNewsLetter from '../../hooks/useCreateNewsLetter';
-import { useContext } from 'react';
-import { AppDataContext } from '../../context/AppContext';
+import { zig } from "../../assets/png";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import useCreateNewsLetter from "../../hooks/useCreateNewsLetter";
+import { useContext } from "react";
+import { AppDataContext } from "../../context/AppContext";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
-    .email('Invalid email address')
-    .required('Email is required'),
+    .email("Invalid email address")
+    .required("Email is required"),
 });
 
 const Mail = () => {
@@ -18,12 +18,12 @@ const Mail = () => {
 
   const formik = useFormik({
     initialValues: {
-      email: '',
-      message: '',
+      email: "",
+      message: "",
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
-      console.log(values, 'emaill...');
+      console.log(values, "emaill...");
       const response = await makePostRequest({
         email: values.email,
       });
@@ -57,7 +57,7 @@ const Mail = () => {
                 id="email"
                 name="email"
                 type="email"
-                className="w-full p-2 border-2 rounded-md"
+                className="w-full p-2 border-2 rounded-md outline-none"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.email}
@@ -78,7 +78,7 @@ const Mail = () => {
             ) : (
               <button
                 type="submit"
-                className="bg-[#E93C24] rounded  p-2 text-white text-sm"
+                className="bg-[#E93C24] hover:bg-[#f86d5a] rounded  p-2 text-white text-sm "
               >
                 Send Message
               </button>

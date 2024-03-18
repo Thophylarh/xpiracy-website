@@ -42,7 +42,7 @@ body {
   .hero-img h4,
   .hero-img button {
     position: relative;
-    z-index: 1; /* Ensures the text is above the overlay */
+    z-index: 1; 
   }
   .img-border-bible {
     width: 335.502px;
