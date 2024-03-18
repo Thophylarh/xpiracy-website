@@ -4,6 +4,7 @@ import { Logo } from '../../assets/svgs';
 import { Link } from 'react-router-dom';
 import ClaimModal from './ClaimModal'; // Import the ClaimModal component
 import { AppDataContext } from '../../context/AppContext';
+import { handleOpenInNewTab } from '../../utils/handleOpenInNewTab';
 
 const NavModal = ({ isOpen, closeDrawer }) => {
   const { setIsModalOpen, setClaimModalOpen, handlePifModalOpen } =
@@ -42,7 +43,13 @@ const NavModal = ({ isOpen, closeDrawer }) => {
             >
               Pay It Forward
             </Link>
-            <Link to="" className="hover:text-[#E93c24] text-4xl ">
+            <Link
+              to=""
+              onClick={() =>
+                handleOpenInNewTab('https://spiritualmealplanner.com/')
+              }
+              className="hover:text-[#E93c24] text-4xl "
+            >
               Get Meal Planner
             </Link>
 

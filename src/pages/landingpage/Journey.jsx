@@ -1,4 +1,6 @@
-import { movementImg } from "../../assets/png";
+import { Link } from 'react-router-dom';
+import { movementImg } from '../../assets/png';
+import { handleOpenInNewTab } from '../../utils/handleOpenInNewTab';
 
 const Journey = () => {
   return (
@@ -9,21 +11,23 @@ const Journey = () => {
             <h2 className=" text-[#fff]  md:w-[350px] w-[270px] md:text-5xl text-5xl font-normal">
               Join The Movement
             </h2>
-            <p className="text-white text-[14px] md:text-[16px] md:w-[400px] ">
+            <p className="text-white pb-5 text-[14px] md:text-[16px] md:w-[400px] ">
               Our community on “Skool” rewards you for your activism while
               connecting you to others passionate about compassion.
             </p>
             {/* <button className="px-10 py-2 bg-[#E93C24] rounded-lg flex items-center gap-x-2">
               <p className="text-sm text-[#fff]">Join Movement Now</p>
             </button> */}
-            <div className="">
-              <a
-                href="https://www.skool.com/christspiracy/about"
-                className="text-white bg-[#E93C24] rounded p-2 hover:bg-[#f86d5a]"
-              >
-                Join Movement Now
-              </a>
-            </div>
+
+            <Link
+              to=""
+              onClick={() =>
+                handleOpenInNewTab('https://www.skool.com/christspiracy/about')
+              }
+              className="text-white bg-[#E93C24] cursor-pointer rounded p-2 hover:bg-[#f86d5a]"
+            >
+              Join Movement Now
+            </Link>
           </div>
           <div className=" w-full">
             <img
