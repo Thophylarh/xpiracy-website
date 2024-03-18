@@ -25,20 +25,20 @@ const NavModal = ({ isOpen, closeDrawer }) => {
               &times;
             </span>
           </div>
-          <div className="flex items-center justify-center flex-col text-[48px] font-bold text-[#fff] py-20 space-y-4">
-            <Link to="" className="hover:text-[#E93c24]">
+          <div className="flex items-center justify-center  flex-col text-[48px] font-bold text-[#fff] py-20 space-y-8">
+            <Link to="" className="hover:text-[#E93c24] text-4xl">
               Home
             </Link>
-            <Link to="" className="hover:text-[#E93c24]">
+            <Link to="" className="hover:text-[#E93c24] text-4xl">
               Pay It Forward
             </Link>
-            <Link to="" className="hover:text-[#E93c24]">
+            <Link to="" className="hover:text-[#E93c24] text-4xl">
               Get Meal Planner
             </Link>
 
             <Link
               to=""
-              className="hover:text-[#E93c24]"
+              className="hover:text-[#E93c24] text-4xl"
               onClick={handleClaimTicketClick}
             >
               Claim Ticket

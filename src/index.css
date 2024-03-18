@@ -6,20 +6,7 @@ body {
   background: #050a0d;
   color: white;
 }
-.mantine-Modal-root,
-.mantine-Modal-content {
-  border: 1px solid transparent;
-  color: white;
-  background: rgba(255, 255, 255, 0.2) !important;
-  border-radius: 30px;
-}
-.mantine-Modal-header {
-  background: none !important;
-  padding: 20px;
-}
-.mantine-Modal-title {
-  font-size: 24px;
-}
+
 
 @layer components {
   .nav-bg {

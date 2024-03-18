@@ -3,20 +3,15 @@ import { Modal, Box, Checkbox, Button, FormControlLabel } from "@mui/material";
 import { useFormik } from "formik";
 import * as yup from "yup"; // Import Yup for form validation
 
-import "react-multi-email/dist/style.css";
-import { users } from "../../assets/svgs";
-import Slider from "@mui/material/Slider";
 import { AppDataContext } from "../../context/AppContext";
 
 const ClaimModal = () => {
   const { closeClaimModal, claimModalOpen } = useContext(AppDataContext);
 
-  // Formik form validation schema
   const validationSchema = yup.object().shape({
     email: yup.string().email("Invalid email").required("Email is required"),
   });
 
-  // Formik form submission handler
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -43,7 +38,7 @@ const ClaimModal = () => {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: 500,
+          width: 600,
           bgcolor: "background.paper",
           boxShadow: 24,
           borderRadius: 5,
@@ -61,9 +56,8 @@ const ClaimModal = () => {
               you otherwise would not be able to purchase a ticket.
             </p>
           </div>
-          {/* Formik Form */}
+
           <form onSubmit={formik.handleSubmit} style={{ textAlign: "left" }}>
-            {/* Email Input */}
             <input
               id="email"
               name="email"
@@ -86,7 +80,7 @@ const ClaimModal = () => {
 
             {/* Checkboxes */}
             <div
-              style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+              style={{ display: "flex", flexDirection: "column", gap: "0.2rem" }}
             >
               <FormControlLabel
                 control={
@@ -99,7 +93,7 @@ const ClaimModal = () => {
                   />
                 }
                 label={
-                  <span style={{ color: "black", fontSize:"12px" }}>
+                  <span style={{ color: "black", fontSize: "12px" }}>
                     I understand that this ticket is only valid in the United
                     States.
                   </span>
@@ -116,7 +110,7 @@ const ClaimModal = () => {
                   />
                 }
                 label={
-                  <span style={{ color: "black" , fontSize:"12px"}}>
+                  <span style={{ color: "black", fontSize: "12px" }}>
                     With this ticket, I will watch Christspiracy in theaters on
                     Sunday, March 24th.
                   </span>
@@ -133,7 +127,7 @@ const ClaimModal = () => {
                   />
                 }
                 label={
-                  <span style={{ color: "black", fontSize:"12px" }}>
+                  <span style={{ color: "black", fontSize: "12px" }}>
                     I want to receive email updates from Christspiracy
                   </span>
                 }
