@@ -38,7 +38,7 @@ const Hero = () => {
           <ConfirmationNumberIcon sx={{ color: "#fff", fontSize: "18px" }} />
           Pay it Forward
         </button>
-        <p className="text-white md:w-[400px]">Allow someone else to watch Christspiracy for free. Your generosity helps spread this message far and wide. </p>
+        <p className="text-[12px] text-[#d8d6d6] md:w-[400px]">Allow someone else to watch Christspiracy for free. Your generosity helps spread this message far and wide. </p>
       </div>
       <PifModal
         open={pifModalOpen}

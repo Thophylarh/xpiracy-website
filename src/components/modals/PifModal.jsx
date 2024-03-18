@@ -12,7 +12,8 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 600,
+  width: "90%", // Adjusted width for mobile screens
+  maxWidth: 600, // Max width for larger screens
   bgcolor: "background.paper",
   boxShadow: 24,
   borderRadius: 5,
@@ -47,8 +48,6 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
     }
     setSliderValue(newValue);
   };
-
-  // console.log(cancelUrl, 'host....');
 
   const handleMakePayment = async () => {
     const ipv4 = (await publicIp.v4()) || "";
