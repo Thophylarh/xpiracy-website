@@ -2,22 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "PPEiko";
+  src: url("../src/fonts/PPFormula-Medium.otf");
+}
+@font-face {
+  font-family: "PPFormula";
+  src: url("../src/fonts/PPFormula-Medium.otf");
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "PPEiko", sans-serif;
+}
+p {
+  font-family: "PPFormula", sans-serif;
+}
+
 body {
   background: #050a0d;
   color: white;
 }
 
 @layer components {
-  .navbar {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px; 
-    z-index: 1000; 
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
-  }
-
   .hero-img {
     @apply w-full bg-no-repeat bg-cover bg-hero-img;
     position: relative;
