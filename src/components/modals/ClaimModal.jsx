@@ -1,27 +1,28 @@
-import React from "react";
-import { Modal, Box } from "@mui/material";
+import React, { useContext } from 'react';
+import { Modal, Box } from '@mui/material';
 
-import "react-multi-email/dist/style.css";
-import {  users } from "../../assets/svgs";
-import Slider from "@mui/material/Slider";
+import 'react-multi-email/dist/style.css';
+import { users } from '../../assets/svgs';
+import Slider from '@mui/material/Slider';
+import { AppDataContext } from '../../context/AppContext';
 
-
-const ClaimModal = ({ open, handleClose,  }) => {
+const ClaimModal = () => {
+  const { closeClaimModal, claimModalOpen } = useContext(AppDataContext);
   return (
     <Modal
-      open={open}
-      onClose={handleClose}
+      open={claimModalOpen}
+      onClose={closeClaimModal}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
       <Box
         sx={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
           width: 350,
-          bgcolor: "background.paper",
+          bgcolor: 'background.paper',
           boxShadow: 24,
           borderRadius: 5,
           p: 4,
@@ -45,15 +46,15 @@ const ClaimModal = ({ open, handleClose,  }) => {
               aria-label="Small"
               valueLabelDisplay="auto"
               sx={{
-                color: "#E93C24",
-                "& .MuiSlider-thumb": {
-                  backgroundColor: "#E93C24",
+                color: '#E93C24',
+                '& .MuiSlider-thumb': {
+                  backgroundColor: '#E93C24',
                 },
-                "& .MuiSlider-track": {
-                  backgroundColor: "#E93C24",
+                '& .MuiSlider-track': {
+                  backgroundColor: '#E93C24',
                 },
-                "& .MuiSlider-rail": {
-                  backgroundColor: "#E93C24",
+                '& .MuiSlider-rail': {
+                  backgroundColor: '#E93C24',
                 },
               }}
             />

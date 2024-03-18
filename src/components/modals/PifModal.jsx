@@ -1,30 +1,71 @@
-import React, { useState } from "react";
-import { Modal, Box } from "@mui/material";
-import Slider from "@mui/material/Slider";
-import { love, users } from "../../assets/svgs";
-import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
-import BookModal from "./BookModal";
+import React, { useState } from 'react';
+import { Modal, Box } from '@mui/material';
+import Slider from '@mui/material/Slider';
+import { love, users } from '../../assets/svgs';
+import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
+import BookModal from './BookModal';
+import useMakePayment from '../../hooks/usePayment';
+import publicIp from 'react-public-ip';
 
 const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 350,
-  bgcolor: "background.paper",
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 600,
+  bgcolor: 'background.paper',
   boxShadow: 24,
   borderRadius: 5,
   p: 4,
 };
 
-const PifModal = ({ open, handleClose,handleBookModalOpen }) => {
-  const [sliderValue, setSliderValue] = useState(70);
+const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
+  const [sliderValue, setSliderValue] = useState(0);
   const [bookTicketModalOpen, setBookTicketModalOpen] = useState(false);
+  const [currency, setCurrency] = useState(0);
+  const [currency2, setCurrency2] = useState(0);
+
+  const { makePostRequest, loading } = useMakePayment();
+
   const handleSliderChange = (event, newValue) => {
+    if (newValue > sliderValue) {
+      // Slider value increased
+      setCurrency(
+        (prevCurrency) => prevCurrency + (newValue - sliderValue) * 15
+      );
+      setCurrency2(
+        (prevCurrency) => prevCurrency + (newValue - sliderValue) * 15
+      );
+    } else if (newValue < sliderValue) {
+      // Slider value decreased
+      setCurrency(
+        (prevCurrency) => prevCurrency - (sliderValue - newValue) * 15
+      );
+      setCurrency2(
+        (prevCurrency) => prevCurrency - (sliderValue - newValue) * 15
+      );
+    }
     setSliderValue(newValue);
   };
 
-  const amount = Math.round((sliderValue / 100) * 15);
+  // console.log(cancelUrl, 'host....');
+
+  const handleMakePayment = async () => {
+    const ipv4 = (await publicIp.v4()) || '';
+    const general = `${window.location.protocol}//${window.location.host}`;
+    setCurrency2(0);
+    const payload = {
+      amount: currency,
+      mode: 'payment',
+      numberOfPeople: sliderValue.toString(),
+      ipAddress: ipv4,
+      successUrl: general,
+      cancelUrl: general,
+    };
+
+    console.log(payload, 'sent...');
+    await makePostRequest(payload);
+  };
 
   const handleBookTicketOpen = () => {
     setBookTicketModalOpen(true);
@@ -45,16 +86,19 @@ const PifModal = ({ open, handleClose,handleBookModalOpen }) => {
         <Box sx={style}>
           <div className="">
             <div>
-              <p className="text-xl font-normal text-black">{`$${amount}`}</p>
+              {/* <p className="text-xl font-normal text-black">{`$${amount}`}</p> */}
+              <p className="text-xl font-normal text-black">$ {currency}</p>
             </div>
             <div className="text-xl font-medium text-black">
+              {loading && <p>loading......</p>}
+
               <p className="text-[16px] font-bold">
                 Pay It Forward To A Stranger
               </p>
 
               <p className="text-xs text-[#565453] ">
                 Gift free tickets for someone else to watch Christspiracy in
-                theaters.{" "}
+                theaters.{' '}
               </p>
             </div>
 
@@ -68,15 +112,15 @@ const PifModal = ({ open, handleClose,handleBookModalOpen }) => {
                   aria-label="Small"
                   valueLabelDisplay="auto"
                   sx={{
-                    color: "#E93C24",
-                    "& .MuiSlider-thumb": {
-                      backgroundColor: "#E93C24",
+                    color: '#E93C24',
+                    '& .MuiSlider-thumb': {
+                      backgroundColor: '#E93C24',
                     },
-                    "& .MuiSlider-track": {
-                      backgroundColor: "#E93C24",
+                    '& .MuiSlider-track': {
+                      backgroundColor: '#E93C24',
                     },
-                    "& .MuiSlider-rail": {
-                      backgroundColor: "#E93C24",
+                    '& .MuiSlider-rail': {
+                      backgroundColor: '#E93C24',
                     },
                   }}
                 />
@@ -87,10 +131,25 @@ const PifModal = ({ open, handleClose,handleBookModalOpen }) => {
             </div>
 
             <br />
-            <div className="bg-[#E93C24] text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-3xl">
-              <img src={love} alt="" />
-              <button className="">Pay it Forward</button>
-            </div>
+
+            {currency2 === 0 ? (
+              <button
+                disabled={true}
+                className="bg-[#808080] text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-3xl"
+              >
+                <img src={love} alt="" />
+
+                {loading ? <p>Redirecting....</p> : <p>Pay it Forward</p>}
+              </button>
+            ) : (
+              <button
+                onClick={handleMakePayment}
+                className="bg-[#E93C24] cursor-pointer text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-3xl"
+              >
+                <img src={love} alt="" />
+                <p>Pay it Forward</p>
+              </button>
+            )}
 
             <div className="mt-6 text-black ">
               <div className="mb-8 space-y-2">
@@ -109,7 +168,7 @@ const PifModal = ({ open, handleClose,handleBookModalOpen }) => {
                   onClick={handleBookModalOpen}
                 >
                   <ConfirmationNumberIcon
-                    sx={{ color: "#565453", fontSize: "18px" }}
+                    sx={{ color: '#565453', fontSize: '18px' }}
                   />
                   <p className="text-xs text-[#565453]">Book Ticket</p>
                 </button>
