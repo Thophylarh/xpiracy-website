@@ -163,7 +163,7 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
 
               <div className="p-2 border-2 rounded-md">
                 <button
-                  className="flex items-center justify-center gap-x-2"
+                  className="flex items-center justify-center gap-x-2 w-full"
                   onClick={handleBookModalOpen}
                 >
                   <ConfirmationNumberIcon
