@@ -17,9 +17,11 @@ h4,
 h5 {
   font-family: "PPEiko", sans-serif;
 }
-p {
+p,
+a,button {
   font-family: "PPFormula", sans-serif;
 }
+
 
 body {
   background: #050a0d;

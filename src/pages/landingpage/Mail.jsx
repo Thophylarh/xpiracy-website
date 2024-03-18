@@ -78,7 +78,7 @@ const Mail = () => {
             ) : (
               <button
                 type="submit"
-                className="bg-[#E93C24] hover:bg-[#f86d5a] rounded  p-2 text-white text-sm "
+                className="bg-[#E93C24] hover:bg-[#f86d5a] rounded  p-2 text-white text-sm font-ppeiko "
               >
                 Send Message
               </button>
