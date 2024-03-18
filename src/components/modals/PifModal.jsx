@@ -103,7 +103,7 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
 
             <div className="flex items-center mt-6 gap-x-4">
               <img src={users} alt="" />
-              <Box sx={{ width: 200 }}>
+              <Box sx={{ width: 450 }}>
                 <Slider
                   size="small"
                   value={sliderValue}
@@ -124,7 +124,7 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
                   }}
                 />
               </Box>
-              <div className="px-4 border">
+              <div className="px-8 py-2 border rounded">
                 <p className="text-xs text-black">{sliderValue}</p>
               </div>
             </div>
@@ -134,7 +134,7 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
             {currency2 === 0 ? (
               <button
                 disabled={true}
-                className="bg-[#808080] text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-3xl"
+                className="bg-[#808080] text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-3xl w-full"
               >
                 <img src={love} alt="" />
 
@@ -143,7 +143,7 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
             ) : (
               <button
                 onClick={handleMakePayment}
-                className="bg-[#E93C24] cursor-pointer text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-[40px]"
+                className="bg-[#E93C24] cursor-pointer text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-[40px] w-full"
               >
                 <img src={love} alt="" />
                 <p>Pay it Forward</p>
