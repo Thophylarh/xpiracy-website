@@ -38,6 +38,7 @@ const ScrollToTop = () => {
             right: "20px",
             backgroundColor: "#E93C24",
             color: "white",
+            zIndex: 9999, // Ensure the button appears on top of other content
           }}
           onClick={scrollToTop}
           aria-label="Scroll to top"
