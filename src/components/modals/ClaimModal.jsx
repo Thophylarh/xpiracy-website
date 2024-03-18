@@ -1,13 +1,35 @@
-import React, { useContext } from 'react';
-import { Modal, Box } from '@mui/material';
+import React, { useContext } from "react";
+import { Modal, Box, Checkbox, Button, FormControlLabel } from "@mui/material";
+import { useFormik } from "formik";
+import * as yup from "yup"; // Import Yup for form validation
 
-import 'react-multi-email/dist/style.css';
-import { users } from '../../assets/svgs';
-import Slider from '@mui/material/Slider';
-import { AppDataContext } from '../../context/AppContext';
+import "react-multi-email/dist/style.css";
+import { users } from "../../assets/svgs";
+import Slider from "@mui/material/Slider";
+import { AppDataContext } from "../../context/AppContext";
 
 const ClaimModal = () => {
   const { closeClaimModal, claimModalOpen } = useContext(AppDataContext);
+
+  // Formik form validation schema
+  const validationSchema = yup.object().shape({
+    email: yup.string().email("Invalid email").required("Email is required"),
+  });
+
+  // Formik form submission handler
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      checkbox1: false,
+      checkbox2: false,
+      checkbox3: false,
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
+
   return (
     <Modal
       open={claimModalOpen}
@@ -17,53 +39,135 @@ const ClaimModal = () => {
     >
       <Box
         sx={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: 350,
-          bgcolor: 'background.paper',
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: 500,
+          bgcolor: "background.paper",
           boxShadow: 24,
           borderRadius: 5,
           p: 4,
         }}
       >
-        <div className="">
+        <div style={{ textAlign: "center" }}>
           <div className="mb-8 space-y-2 text-black">
-            <h4 className="text-lg font-bold">
-              How Many People Do You Want To Pay For
+            <h4 className="text-[16px] font-semibold">
+              The Christspiracy community has generously sponsored theater
+              tickets for those who need it on Sunday, March 24th.
             </h4>
-            <p className="text-xs ">
-              Provide free tickets for someone to watch this at the movie
-              theaters
+            <p className="text-xs">
+              Claiming tickets is based on an honor system. Please only claim if
+              you otherwise would not be able to purchase a ticket.
             </p>
           </div>
-          <div className="flex items-center gap-x-2">
-            <img src={users} alt="" />
-            <Slider
-              size="small"
-              defaultValue={70}
-              aria-label="Small"
-              valueLabelDisplay="auto"
-              sx={{
-                color: '#E93C24',
-                '& .MuiSlider-thumb': {
-                  backgroundColor: '#E93C24',
-                },
-                '& .MuiSlider-track': {
-                  backgroundColor: '#E93C24',
-                },
-                '& .MuiSlider-rail': {
-                  backgroundColor: '#E93C24',
-                },
+          {/* Formik Form */}
+          <form onSubmit={formik.handleSubmit} style={{ textAlign: "left" }}>
+            {/* Email Input */}
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Enter your email"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
+              style={{
+                width: "100%",
+                marginBottom: "1rem",
+                padding: "0.5rem",
+                borderRadius: "0.25rem",
+                border: "1px solid #ced4da",
               }}
             />
-          </div>
-          <div className="flex items-center justify-between">
-            <p className="text-black text-[9px] px-6">min:1</p>
-            <p className="text-black text-[9px]">max:10</p>
-          </div>
-          <div className="mt-4 "></div>
+            {formik.touched.email && formik.errors.email ? (
+              <div style={{ color: "red" }}>{formik.errors.email}</div>
+            ) : null}
+
+            {/* Checkboxes */}
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+            >
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    id="checkbox1"
+                    name="checkbox1"
+                    checked={formik.values.checkbox1}
+                    onChange={formik.handleChange}
+                    style={{ color: "#E93C24" }}
+                  />
+                }
+                label={
+                  <span style={{ color: "black", fontSize:"12px" }}>
+                    I understand that this ticket is only valid in the United
+                    States.
+                  </span>
+                }
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    id="checkbox2"
+                    name="checkbox2"
+                    checked={formik.values.checkbox2}
+                    onChange={formik.handleChange}
+                    style={{ color: "#E93C24" }}
+                  />
+                }
+                label={
+                  <span style={{ color: "black" , fontSize:"12px"}}>
+                    With this ticket, I will watch Christspiracy in theaters on
+                    Sunday, March 24th.
+                  </span>
+                }
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    id="checkbox3"
+                    name="checkbox3"
+                    checked={formik.values.checkbox3}
+                    onChange={formik.handleChange}
+                    style={{ color: "#E93C24" }}
+                  />
+                }
+                label={
+                  <span style={{ color: "black", fontSize:"12px" }}>
+                    I want to receive email updates from Christspiracy
+                  </span>
+                }
+              />
+            </div>
+
+            {/* Submit Button */}
+            <div style={{ textAlign: "center", marginTop: "1rem" }}>
+              <Button
+                type="submit"
+                disabled={
+                  !(formik.values.checkbox1 && formik.values.checkbox2) ||
+                  formik.isSubmitting
+                }
+                style={{
+                  marginTop: "1rem",
+                  backgroundColor: "#E93C24",
+                  borderRadius: "5px",
+                  color: "white",
+                  padding: "0.5rem 2rem",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+                // Hover styles
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "#ff6347",
+                  },
+                }}
+              >
+                Submit
+              </Button>
+            </div>
+          </form>
         </div>
       </Box>
     </Modal>
