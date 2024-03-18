@@ -49,7 +49,7 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
 
   const handleMakePayment = async () => {
     const ipv4 = (await publicIp.v4()) || '';
-    const general = `${window.location.protocol}//${window.location.host}`;
+    const general = `${window.location.protocol}//${window.location.host}/multiplePayment`;
     setCurrency2(0);
     const payload = {
       amount: currency,

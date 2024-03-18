@@ -51,7 +51,7 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
 
   const handleMakePayment = async () => {
     const ipv4 = (await publicIp.v4()) || '';
-    const general = `${window.location.protocol}//${window.location.host}`;
+    const general = `${window.location.protocol}//${window.location.host}/singlePayment`;
     setCurrency2(0);
     const payload = {
       amount: currency,

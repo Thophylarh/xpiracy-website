@@ -1,19 +1,23 @@
-import { createBrowserRouter } from "react-router-dom";
-import WebLayout from "../components/layouts/WebLayout";
-import React from "react";
-import Hero from "../pages/landingpage/Hero";
-import Home from "../pages/landingpage/Home";
+import { createBrowserRouter } from 'react-router-dom';
+import WebLayout from '../components/layouts/WebLayout';
+import React from 'react';
+import Hero from '../pages/landingpage/Hero';
+import Home from '../pages/landingpage/Home';
+import SingleSuccess from '../pages/landingpage/SingleSuccess';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     children: [
       {
         // index: true,
         element: <WebLayout />,
-        children: [{ element: <Home />, path: "/" }],
+        children: [
+          { element: <Home />, path: '/' },
+          { element: <SingleSuccess />, path: '/singlePayment' },
+          { element: <multipleSuccessPayment />, path: '/multiplePayment' },
+        ],
       },
-     
     ],
   },
 ]);
