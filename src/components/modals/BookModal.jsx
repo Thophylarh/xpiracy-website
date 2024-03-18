@@ -1,14 +1,15 @@
-import React from 'react';
-import { Modal, Box, useMediaQuery, useTheme } from '@mui/material';
-import { ReactMultiEmail, isEmail } from 'react-multi-email';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import 'react-multi-email/dist/style.css';
-import { love, users } from '../../assets/svgs';
-import Slider from '@mui/material/Slider';
-import { useState } from 'react';
-import AppInput from '../AppInput/AppInput';
-import publicIp from 'react-public-ip';
-import useMakePayment from '../../hooks/usePayment';
+import React from "react";
+import { Modal, Box, useMediaQuery, useTheme, IconButton } from "@mui/material";
+import { ReactMultiEmail, isEmail } from "react-multi-email";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import "react-multi-email/dist/style.css";
+import { love, users } from "../../assets/svgs";
+import Slider from "@mui/material/Slider";
+import { useState } from "react";
+import AppInput from "../AppInput/AppInput";
+import publicIp from "react-public-ip";
+import useMakePayment from "../../hooks/usePayment";
+import { Close as CloseIcon } from "@mui/icons-material";
 
 const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
   const [emails, setEmails] = useState([]);
@@ -17,14 +18,14 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
   const [currency, setCurrency] = useState(0);
   const [currency2, setCurrency2] = useState(0);
   const { makePostRequest, loading } = useMakePayment();
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
 
   const theme = createTheme();
   const currentTheme = useTheme();
-  const isSmallScreen = useMediaQuery(currentTheme.breakpoints.down('sm'));
+  const isSmallScreen = useMediaQuery(currentTheme.breakpoints.down("sm"));
 
   const handleSliderChange = (event, newValue) => {
     if (newValue > sliderValue) {
@@ -48,22 +49,22 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
   };
 
   const handleMakePayment = async () => {
-    const ipv4 = (await publicIp.v4()) || '';
+    const ipv4 = (await publicIp.v4()) || "";
     const general = `${window.location.protocol}//${window.location.host}`;
     setCurrency2(0);
     const payload = {
       amount: currency,
-      mode: 'payment',
+      mode: "payment",
       numberOfPeople: sliderValue.toString(),
       ipAddress: ipv4,
       successUrl: general,
       cancelUrl: general,
-      payerName: 'mike',
+      payerName: "mike",
       email: emails,
       payerName: inputValue,
     };
 
-    console.log(payload, 'sent...');
+    console.log(payload, "sent...");
     await makePostRequest(payload);
   };
 
@@ -77,19 +78,29 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
       >
         <Box
           sx={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: isSmallScreen ? '90%' : 550, // Adjust width based on screen size
-            maxWidth: '90vw', // Max width for small screens
-            bgcolor: 'background.paper',
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: isSmallScreen ? "90%" : 550, // Adjust width based on screen size
+            maxWidth: "90vw", // Max width for small screens
+            bgcolor: "background.paper",
             boxShadow: 24,
             borderRadius: 5,
             p: 4,
           }}
         >
           <div className="">
+            <IconButton
+              sx={{
+                position: "absolute",
+                top: "10px",
+                right: "10px",
+              }}
+              onClick={handleClose}
+            >
+              <CloseIcon />
+            </IconButton>
             <div className="mb-8 space-y-2 text-black">
               <p className="text-xl font-normal text-black">$ {currency}</p>
               <h4 className="text-lg font-bold">
@@ -111,15 +122,15 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
                 aria-label="Small"
                 valueLabelDisplay="auto"
                 sx={{
-                  color: '#E93C24',
-                  '& .MuiSlider-thumb': {
-                    backgroundColor: '#E93C24',
+                  color: "#E93C24",
+                  "& .MuiSlider-thumb": {
+                    backgroundColor: "#E93C24",
                   },
-                  '& .MuiSlider-track': {
-                    backgroundColor: '#E93C24',
+                  "& .MuiSlider-track": {
+                    backgroundColor: "#E93C24",
                   },
-                  '& .MuiSlider-rail': {
-                    backgroundColor: '#E93C24',
+                  "& .MuiSlider-rail": {
+                    backgroundColor: "#E93C24",
                   },
                 }}
               />
@@ -131,7 +142,7 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
             <div className="mt-4 ">
               <div>
                 <p className="text-[#7D7A78] text-[12px] mb-2">
-                  Your First Name{' '}
+                  Your First Name{" "}
                 </p>
                 <AppInput
                   placeholder="First Name"
@@ -164,8 +175,8 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
                 />
 
                 <h4>react-multi-email value</h4>
-                <h3>Focused: {focused ? 'true' : 'false'}</h3>
-                <p>{emails.join(', ') || 'empty'}</p>
+                <h3>Focused: {focused ? "true" : "false"}</h3>
+                <p>{emails.join(", ") || "empty"}</p>
                 {currency2 === 0 ? (
                   <button
                     disabled={true}
