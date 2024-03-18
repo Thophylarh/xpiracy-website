@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import {
   Modal,
   Box,
@@ -13,15 +13,25 @@ import * as yup from 'yup'; // Import Yup for form validation
 import { AppDataContext } from '../../context/AppContext';
 import useCreateNewsLetter from '../../hooks/useCreateNewsLetter';
 import { CheckIcon } from '@mantine/core';
+import AppInput from '../AppInput/AppInput';
 
 const ClaimModal = () => {
   const { closeClaimModal, claimModalOpen, successMessage, setSuccessMessage } =
     useContext(AppDataContext);
-  const { makePostRequest, loading } = useCreateNewsLetter();
+  const { makePostRequest, loading, setShowSuccessDiv, showSuccessDiv } =
+    useCreateNewsLetter();
 
   const validationSchema = yup.object().shape({
     email: yup.string().email('Invalid email').required('Email is required'),
   });
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowSuccessDiv(false);
+    }, 2000); // 2 seconds
+
+    return () => clearTimeout(timeout);
+  }, [showSuccessDiv]);
 
   const formik = useFormik({
     initialValues: {
@@ -32,10 +42,10 @@ const ClaimModal = () => {
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
-      console.log(values);
       await makePostRequest({
         email: values.email,
       });
+      formik.resetForm();
     },
   });
 
@@ -60,7 +70,11 @@ const ClaimModal = () => {
         }}
       >
         <div style={{ textAlign: 'center' }}>
-          <Alert severity="success">{successMessage}</Alert>
+          {showSuccessDiv && (
+            <Alert severity="success" style={{ marginBottom: '20px' }}>
+              {successMessage}
+            </Alert>
+          )}
           <div className="mb-8 space-y-2 text-black">
             <h4 className="text-[16px] font-semibold">
               The Christspiracy community has generously sponsored theater
@@ -72,8 +86,8 @@ const ClaimModal = () => {
             </p>
           </div>
 
-          <form onSubmit={formik.handleSubmit} style={{ textAlign: 'left' }}>
-            <input
+          <div style={{ textAlign: 'left' }}>
+            {/* <input
               id="email"
               name="email"
               type="email"
@@ -88,6 +102,16 @@ const ClaimModal = () => {
                 borderRadius: '0.25rem',
                 border: '1px solid #ced4da',
               }}
+            /> */}
+
+            <AppInput
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Enter your email"
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
+              onChange={formik.handleChange}
             />
             {formik.touched.email && formik.errors.email ? (
               <div style={{ color: 'red' }}>{formik.errors.email}</div>
@@ -155,36 +179,62 @@ const ClaimModal = () => {
 
             {/* Submit Button */}
             <div style={{ textAlign: 'center', marginTop: '1rem' }}>
-              <Button
-                type="submit"
-                disabled={
-                  !formik.values.checkbox1 ||
-                  !formik.values.checkbox2 ||
-                  formik.isSubmitting
-                }
-                style={{
-                  marginTop: '1rem',
-                  backgroundColor: '#E93C24',
-                  borderRadius: '5px',
-                  color: 'white',
-                  padding: '0.5rem 2rem',
-                  border: 'none',
-                  cursor: 'pointer',
-                  ...(formik.values.checkbox1 && formik.values.checkbox2
-                    ? {}
-                    : { backgroundColor: '#808080' }),
-                }}
-                // Hover styles
-                sx={{
-                  '&:hover': {
-                    backgroundColor: '#ff6347',
-                  },
-                }}
-              >
-                Submit
-              </Button>
+              {loading ? (
+                <Button
+                  type="submit"
+                  disabled={true}
+                  style={{
+                    marginTop: '1rem',
+                    backgroundColor: '#808080',
+                    borderRadius: '5px',
+                    color: 'white',
+                    padding: '0.5rem 2rem',
+                    border: 'none',
+                    cursor: 'pointer',
+                  }}
+                  // Hover styles
+                  sx={{
+                    '&:hover': {
+                      backgroundColor: '#ff6347',
+                    },
+                  }}
+                  onClick={formik.handleSubmit}
+                >
+                  Submitting...
+                </Button>
+              ) : (
+                <Button
+                  type="submit"
+                  disabled={
+                    !formik.values.checkbox1 ||
+                    !formik.values.checkbox2 ||
+                    formik.isSubmitting
+                  }
+                  style={{
+                    marginTop: '1rem',
+                    backgroundColor: '#E93C24',
+                    borderRadius: '5px',
+                    color: 'white',
+                    padding: '0.5rem 2rem',
+                    border: 'none',
+                    cursor: 'pointer',
+                    ...(formik.values.checkbox1 && formik.values.checkbox2
+                      ? {}
+                      : { backgroundColor: '#808080' }),
+                  }}
+                  // Hover styles
+                  sx={{
+                    '&:hover': {
+                      backgroundColor: '#ff6347',
+                    },
+                  }}
+                  onClick={formik.handleSubmit}
+                >
+                  Submit
+                </Button>
+              )}
             </div>
-          </form>
+          </div>
         </div>
       </Box>
     </Modal>

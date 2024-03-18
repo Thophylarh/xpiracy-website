@@ -7,6 +7,7 @@ const useCreateNewsLetter = () => {
     useContext(AppDataContext);
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [showSuccessDiv, setShowSuccessDiv] = useState(false);
 
   const makePostRequest = async (postData) => {
     setLoading(true);
@@ -15,6 +16,7 @@ const useCreateNewsLetter = () => {
         `${APP_CONFIG.BASE_URL}newsletter`,
         postData
       );
+      setShowSuccessDiv(true);
       setSuccessMessage('Email Addes Successfully to newsletter');
       setLoading(false);
     } catch (error) {
@@ -23,7 +25,14 @@ const useCreateNewsLetter = () => {
     }
   };
 
-  return { data, loading, error, makePostRequest };
+  return {
+    data,
+    loading,
+    error,
+    makePostRequest,
+    setShowSuccessDiv,
+    showSuccessDiv,
+  };
 };
 
 export default useCreateNewsLetter;
