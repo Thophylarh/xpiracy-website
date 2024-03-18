@@ -1,35 +1,20 @@
-// Modal.tsx
-import React from "react";
+import React, { useState } from "react";
 import DrawerWrapper from "../wrapper/Wrapper";
 import { Logo } from "../../assets/svgs";
 import { Link } from "react-router-dom";
+import ClaimModal from "./ClaimModal"; // Import the ClaimModal component
 
-const navItems = [
-  {
-    id: 0,
-    path: "!#",
-    title: "Home",
-  },
-  {
-    id: 1,
-    path: "!#",
-    title: "Pay It Forward",
-  },
-  {
-    id: 2,
-    path: "!#",
-    title: "Get Meal Planner",
-  },
-  {
-    id: 3,
-    path: "!#",
-    title: "Claim Ticket",
-  },
-];
 const NavModal = ({ isOpen, closeDrawer }) => {
-  const handleClick = (e) => {
-    e.preventDefault();
-    closeDrawer();
+  const [claimModalOpen, setClaimModalOpen] = useState(false); // State to control the ClaimModal
+
+ 
+  const handleClaimTicketClick = () => {
+    setClaimModalOpen(true);
+  };
+
+ 
+  const handleCloseClaimModal = () => {
+    setClaimModalOpen(false);
   };
 
   return (
@@ -40,18 +25,33 @@ const NavModal = ({ isOpen, closeDrawer }) => {
             <div className="">
               <img src={Logo} alt="" />
             </div>
-            <span className="mx-auto close " onClick={handleClick}>
+            <span className="mx-auto close " onClick={closeDrawer}>
               &times;
             </span>
           </div>
-          <div className="flex items-center justify-center flex-col text-[48px] font-bold  text-[#fff] py-20 space-y-4 ">
-           {navItems.map(({id,title})=>(
-              <Link to="!#" key={id} className="hover:text-[#E93C24]">{title}</Link>
-           ))}
+          <div className="flex items-center justify-center flex-col text-[48px] font-bold text-[#fff] py-20 space-y-4">
+            <Link to="" className="hover:text-[#E93c24]">
+              Home
+            </Link>
+            <Link to="" className="hover:text-[#E93c24]">
+              Pay It Forward
+            </Link>
+            <Link to="" className="hover:text-[#E93c24]">
+              Get Meal Planner
+            </Link>
           
+            <Link
+              to=""
+              className="hover:text-[#E93c24]"
+              onClick={handleClaimTicketClick}
+            >
+              Claim Ticket
+            </Link>
           </div>
         </div>
       </div>
+   
+      <ClaimModal open={claimModalOpen} handleClose={handleCloseClaimModal} />
     </DrawerWrapper>
   );
 };
