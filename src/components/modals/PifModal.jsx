@@ -6,6 +6,10 @@ import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 import BookModal from './BookModal';
 import useMakePayment from '../../hooks/usePayment';
 import publicIp from 'react-public-ip';
+import CloseIcon from '@mui/icons-material/Close';
+import {
+  IconButton, // Import IconButton
+} from '@mui/material';
 
 const style = {
   position: 'absolute',
@@ -84,6 +88,16 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
       >
         <Box sx={style}>
           <div className="">
+            <IconButton
+              sx={{
+                position: 'absolute',
+                top: '10px',
+                right: '10px',
+              }}
+              onClick={handleClose}
+            >
+              <CloseIcon />
+            </IconButton>
             <div>
               {/* <p className="text-xl font-normal text-black">{`$${amount}`}</p> */}
               <p className="text-xl font-normal text-black">$ {currency}</p>
@@ -161,16 +175,17 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
                 </p>
               </div>
 
-              <button
-                // className="flex items-center justify-center gap-x-2 w-full"
-                className="w-full p-2 py-4 border-[1.5px] flex gap-3 border-[#b5b8c1] items-center justify-center rounded-md outline-none"
-                onClick={handleBookModalOpen}
-              >
-                <ConfirmationNumberIcon
-                  sx={{ color: '#565453', fontSize: '18px' }}
-                />
-                <p className="text-xs text-[#565453]">Book Ticket</p>
-              </button>
+              <div className="p-2 border-2 rounded-md">
+                <button
+                  className="flex items-center justify-center w-full gap-x-2"
+                  onClick={handleBookModalOpen}
+                >
+                  <ConfirmationNumberIcon
+                    sx={{ color: '#565453', fontSize: '18px' }}
+                  />
+                  <p className="text-xs text-[#565453]">Book Ticket</p>
+                </button>
+              </div>
             </div>
           </div>
         </Box>

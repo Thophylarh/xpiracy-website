@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Box, useMediaQuery, useTheme } from '@mui/material';
+import { Modal, Box, useMediaQuery, useTheme, IconButton } from '@mui/material';
 import { ReactMultiEmail, isEmail } from 'react-multi-email';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import 'react-multi-email/dist/style.css';
@@ -9,6 +9,7 @@ import { useState } from 'react';
 import AppInput from '../AppInput/AppInput';
 import publicIp from 'react-public-ip';
 import useMakePayment from '../../hooks/usePayment';
+import { Close as CloseIcon } from '@mui/icons-material';
 
 const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
   const [emails, setEmails] = useState([]);
@@ -18,6 +19,7 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
   const [currency2, setCurrency2] = useState(0);
   const { makePostRequest, loading } = useMakePayment();
   const [inputValue, setInputValue] = useState('');
+  const [emailError, setEmailError] = useState(false);
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
@@ -59,7 +61,7 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
       successUrl: general,
       cancelUrl: general,
       payerName: 'mike',
-      email: emails,
+      email: emails?.join(', '),
       payerName: inputValue,
     };
 
@@ -90,6 +92,16 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
           }}
         >
           <div className="">
+            <IconButton
+              sx={{
+                position: 'absolute',
+                top: '10px',
+                right: '10px',
+              }}
+              onClick={handleClose}
+            >
+              <CloseIcon />
+            </IconButton>
             <div className="mb-8 space-y-2 text-black">
               <p className="text-xl font-normal text-black">$ {currency}</p>
               <h4 className="text-lg font-bold">
@@ -144,11 +156,12 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
                   placeholder="Input your email"
                   emails={emails}
                   onChange={(_emails) => {
-                    // Filter out excess emails beyond the slider value
                     if (_emails.length <= sliderValue) {
                       setEmails(_emails);
+                      setEmailError(false); // Reset error state when within limit
                     } else {
                       setEmails(_emails.slice(0, sliderValue));
+                      setEmailError(true); // Set error state when exceeding limit
                     }
                   }}
                   maxTags={3}
@@ -169,6 +182,11 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
                     );
                   }}
                 />
+                {emailError && (
+                  <p className="text-red-500 pt-3 text-sm">
+                    You can't add more emails than the current slider value
+                  </p>
+                )}
                 {/* 
                 <h4>react-multi-email value</h4>
                 <h3>Focused: {focused ? 'true' : 'false'}</h3> */}

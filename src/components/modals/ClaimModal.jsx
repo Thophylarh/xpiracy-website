@@ -1,20 +1,22 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from "react";
 import {
   Modal,
   Box,
   Checkbox,
   Button,
+  IconButton,
   FormControlLabel,
   Alert,
-} from '@mui/material';
-import { useFormik } from 'formik';
-import * as yup from 'yup'; // Import Yup for form validation
+} from "@mui/material";
 
-import { AppDataContext } from '../../context/AppContext';
-import useCreateNewsLetter from '../../hooks/useCreateNewsLetter';
-import { CheckIcon } from '@mantine/core';
-import AppInput from '../AppInput/AppInput';
+import { useFormik } from "formik";
+import * as yup from "yup"; // Import Yup for form validation
 
+import { AppDataContext } from "../../context/AppContext";
+import useCreateNewsLetter from "../../hooks/useCreateNewsLetter";
+import { CheckIcon } from "@mantine/core";
+import AppInput from "../AppInput/AppInput";
+import { Close as CloseIcon } from "@mui/icons-material";
 const ClaimModal = () => {
   const { closeClaimModal, claimModalOpen, successMessage, setSuccessMessage } =
     useContext(AppDataContext);
@@ -22,7 +24,7 @@ const ClaimModal = () => {
     useCreateNewsLetter();
 
   const validationSchema = yup.object().shape({
-    email: yup.string().email('Invalid email').required('Email is required'),
+    email: yup.string().email("Invalid email").required("Email is required"),
   });
 
   useEffect(() => {
@@ -35,7 +37,7 @@ const ClaimModal = () => {
 
   const formik = useFormik({
     initialValues: {
-      email: '',
+      email: "",
       checkbox1: false,
       checkbox2: false,
       checkbox3: false,
@@ -70,9 +72,19 @@ const ClaimModal = () => {
           p: 4,
         }}
       >
-        <div style={{ textAlign: 'center' }}>
+        <div style={{ textAlign: "center" }}>
+          <IconButton // Close button
+            sx={{
+              position: "absolute",
+              top: "10px",
+              right: "10px",
+            }}
+            onClick={closeClaimModal}
+          >
+            <CloseIcon />
+          </IconButton>
           {showSuccessDiv && (
-            <Alert severity="success" style={{ marginBottom: '20px' }}>
+            <Alert severity="success" style={{ marginBottom: "20px" }}>
               {successMessage}
             </Alert>
           )}
@@ -87,7 +99,7 @@ const ClaimModal = () => {
             </p>
           </div>
 
-          <div style={{ textAlign: 'left' }}>
+          <div style={{ textAlign: "left" }}>
             {/* <input
               id="email"
               name="email"
@@ -115,15 +127,15 @@ const ClaimModal = () => {
               onChange={formik.handleChange}
             />
             {formik.touched.email && formik.errors.email ? (
-              <div style={{ color: 'red' }}>{formik.errors.email}</div>
+              <div style={{ color: "red" }}>{formik.errors.email}</div>
             ) : null}
 
             {/* Checkboxes */}
             <div
               style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '0.2rem',
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.2rem",
               }}
             >
               <FormControlLabel
@@ -133,11 +145,11 @@ const ClaimModal = () => {
                     name="checkbox1"
                     checked={formik.values.checkbox1}
                     onChange={formik.handleChange}
-                    style={{ color: '#E93C24' }}
+                    style={{ color: "#E93C24" }}
                   />
                 }
                 label={
-                  <span style={{ color: 'black', fontSize: '12px' }}>
+                  <span style={{ color: "black", fontSize: "12px" }}>
                     I understand that this ticket is only valid in the United
                     States.
                   </span>
@@ -150,11 +162,11 @@ const ClaimModal = () => {
                     name="checkbox2"
                     checked={formik.values.checkbox2}
                     onChange={formik.handleChange}
-                    style={{ color: '#E93C24' }}
+                    style={{ color: "#E93C24" }}
                   />
                 }
                 label={
-                  <span style={{ color: 'black', fontSize: '12px' }}>
+                  <span style={{ color: "black", fontSize: "12px" }}>
                     With this ticket, I will watch Christspiracy in theaters on
                     Sunday, March 24th.
                   </span>
@@ -167,11 +179,11 @@ const ClaimModal = () => {
                     name="checkbox3"
                     checked={formik.values.checkbox3}
                     onChange={formik.handleChange}
-                    style={{ color: '#E93C24' }}
+                    style={{ color: "#E93C24" }}
                   />
                 }
                 label={
-                  <span style={{ color: 'black', fontSize: '12px' }}>
+                  <span style={{ color: "black", fontSize: "12px" }}>
                     I want to receive email updates from Christspiracy
                   </span>
                 }
@@ -179,24 +191,24 @@ const ClaimModal = () => {
             </div>
 
             {/* Submit Button */}
-            <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+            <div style={{ textAlign: "center", marginTop: "1rem" }}>
               {loading ? (
                 <Button
                   type="submit"
                   disabled={true}
                   style={{
-                    marginTop: '1rem',
-                    backgroundColor: '#808080',
-                    borderRadius: '5px',
-                    color: 'white',
-                    padding: '0.5rem 2rem',
-                    border: 'none',
-                    cursor: 'pointer',
+                    marginTop: "1rem",
+                    backgroundColor: "#808080",
+                    borderRadius: "5px",
+                    color: "white",
+                    padding: "0.5rem 2rem",
+                    border: "none",
+                    cursor: "pointer",
                   }}
                   // Hover styles
                   sx={{
-                    '&:hover': {
-                      backgroundColor: '#ff6347',
+                    "&:hover": {
+                      backgroundColor: "#ff6347",
                     },
                   }}
                   onClick={formik.handleSubmit}
@@ -212,21 +224,21 @@ const ClaimModal = () => {
                     formik.isSubmitting
                   }
                   style={{
-                    marginTop: '1rem',
-                    backgroundColor: '#E93C24',
-                    borderRadius: '40px',
-                    color: 'white',
-                    padding: '0.5rem 2rem',
-                    border: 'none',
-                    cursor: 'pointer',
+                    marginTop: "1rem",
+                    backgroundColor: "#E93C24",
+                    borderRadius: "40px",
+                    color: "white",
+                    padding: "0.5rem 2rem",
+                    border: "none",
+                    cursor: "pointer",
                     ...(formik.values.checkbox1 && formik.values.checkbox2
                       ? {}
-                      : { backgroundColor: '#808080' }),
+                      : { backgroundColor: "#808080" }),
                   }}
                   // Hover styles
                   sx={{
-                    '&:hover': {
-                      backgroundColor: '#ff6347',
+                    "&:hover": {
+                      backgroundColor: "#ff6347",
                     },
                   }}
                   onClick={formik.handleSubmit}
