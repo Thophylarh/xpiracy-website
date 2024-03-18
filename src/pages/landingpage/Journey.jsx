@@ -25,7 +25,7 @@ const Journey = () => {
               </a>
             </div>
           </div>
-          <div className="absolute md:-top-[63%] md:right-10 md:block -top-[30%] -right-[3%] ">
+          <div className="absolute md:-top-[63%] md:-right-[10%] md:block -top-[30%] -right-[3%] ">
             <img
               src={movementImg}
               alt=""

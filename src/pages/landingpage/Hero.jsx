@@ -29,8 +29,8 @@ const Hero = () => {
         <h4 className="md:text-[16px] text-[14px] font-semibold">
           IN THEATRES <span className="text-[#e93c24]">MARCH 20TH, 24TH</span>{" "}
         </h4>
-        <button className="p-2 my-4 text-[#e93c24] border rounded text-[13px]">Sign Up For More</button>
-        <p className="text-white">Receive extra content, community, resources, and more. </p>
+        {/* <button className="p-2 my-4 underline rounded text-[13px]">Sign Up For More</button>
+        <p className="text-white">Receive extra content, community, resources, and more. </p> */}
         <button
           onClick={handlePifModalOpen}
           className="bg-[#E93C24] p-2 rounded my-4 text-sm flex items-center gap-x-2"
