@@ -33,7 +33,7 @@ const NavModal = ({ isOpen, closeDrawer }) => {
             </span>
           </div>
           <div className="flex items-center justify-center  flex-col text-[48px] font-bold text-[#fff] py-20 space-y-8">
-            <Link to="" className="hover:text-[#E93c24] text-4xl ">
+            <Link to="" className="hover:text-[#E93c24] text-2xl md:text-4xl ">
               Home
             </Link>
             <Link
@@ -48,14 +48,14 @@ const NavModal = ({ isOpen, closeDrawer }) => {
               onClick={() =>
                 handleOpenInNewTab('https://spiritualmealplanner.com/')
               }
-              className="hover:text-[#E93c24] text-4xl "
+              className="hover:text-[#E93c24] text-2xl md:text-4xl "
             >
               Get Meal Planner
             </Link>
 
             <Link
               to=""
-              className="hover:text-[#ed7363] text-4xl bg-[#E93c24] text-white py-2 px-6 rounded"
+              className="hover:text-[#ed7363] text-2xl md:text-4xl  bg-[#E93c24] text-white py-2 px-6 rounded"
               onClick={handleClaimTicketClick}
             >
               Claim Ticket

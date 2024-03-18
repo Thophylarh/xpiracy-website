@@ -58,12 +58,13 @@ const ClaimModal = () => {
     >
       <Box
         sx={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: 600,
-          bgcolor: 'background.paper',
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: "90%", // Adjusted width for smaller screens
+          maxWidth: 600, // Max width for larger screens
+          bgcolor: "background.paper",
           boxShadow: 24,
           borderRadius: 5,
           p: 4,
@@ -76,11 +77,11 @@ const ClaimModal = () => {
             </Alert>
           )}
           <div className="mb-8 space-y-2 text-black">
-            <h4 className="text-[16px] font-semibold">
+            <h4 className="md:text-[16px] font-semibold text-[12px]">
               The Christspiracy community has generously sponsored theater
               tickets for those who need it on Sunday, March 24th.
             </h4>
-            <p className="text-xs">
+            <p className="md:text-xs text-[10px]">
               Claiming tickets is based on an honor system. Please only claim if
               you otherwise would not be able to purchase a ticket.
             </p>
