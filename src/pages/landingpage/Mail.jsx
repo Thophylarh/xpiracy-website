@@ -1,15 +1,15 @@
-import { zig } from '../../assets/png';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import useCreateNewsLetter from '../../hooks/useCreateNewsLetter';
-import { useContext, useEffect } from 'react';
-import { AppDataContext } from '../../context/AppContext';
-import { Alert } from '@mui/material';
+import { zig } from "../../assets/png";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import useCreateNewsLetter from "../../hooks/useCreateNewsLetter";
+import { useContext, useEffect } from "react";
+import { AppDataContext } from "../../context/AppContext";
+import { Alert } from "@mui/material";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
-    .email('Invalid email address')
-    .required('Email is required'),
+    .email("Invalid email address")
+    .required("Email is required"),
 });
 
 const Mail = () => {
@@ -34,12 +34,12 @@ const Mail = () => {
 
   const formik = useFormik({
     initialValues: {
-      email: '',
-      message: '',
+      email: "",
+      message: "",
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
-      console.log(values, 'emaill...');
+      console.log(values, "emaill...");
       await makePostRequest({
         email: values.email,
       });
@@ -72,7 +72,7 @@ const Mail = () => {
                 htmlFor="email"
                 className="text-[15px] font-normal text-[#838485] font-ppeiko"
               >
-                Email
+                Enter Your Email
               </label>
               <input
                 id="email"

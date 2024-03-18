@@ -22,7 +22,7 @@ const Hero = () => {
       <div className="flex flex-col items-start w-11/12 my-auto">
         <div className="flex items-center gap-x-2">
           <div className="bg-[#e93c24] w-2 h-4"></div>
-          <h4 className="text-[14px] md:text-2xl">WHAT WOULD JESUS DO</h4>
+          <h4 className="text-[14px] md:text-[16px]">WHAT WOULD JESUS DO</h4>
         </div>
 
         <h1 className="md:text-[4rem] text-[2rem] font-bold">CHRISTPIRACY</h1>

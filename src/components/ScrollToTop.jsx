@@ -34,16 +34,18 @@ const ScrollToTop = () => {
         <IconButton
           style={{
             position: "fixed",
-            bottom: "20px",
-            right: "20px",
+            bottom: "40px",
+            right: "40px",
             backgroundColor: "#E93C24",
             color: "white",
-            zIndex: 9999, // Ensure the button appears on top of other content
+            zIndex: 9999,
+            padding: "12px",
+            borderRadius: "50%",
           }}
           onClick={scrollToTop}
           aria-label="Scroll to top"
         >
-          <KeyboardArrowUpIcon />
+          <KeyboardArrowUpIcon style={{ fontSize: "30px" }} />{" "}
         </IconButton>
       )}
     </>

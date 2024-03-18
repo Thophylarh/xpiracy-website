@@ -54,6 +54,15 @@ const NavModal = ({ isOpen, closeDrawer }) => {
             >
               Get Meal Planner
             </Link>
+            <Link
+              to=""
+              onClick={() =>
+                handleOpenInNewTab('https://www.christspiracy.com/')
+              }
+              className="hover:text-[#E93c24] text-xl md:text-2xl flex items-center justify-center"
+            >
+              Watch Trailer
+            </Link>
 
             <div
               onClick={handleClaimTicketClick}
