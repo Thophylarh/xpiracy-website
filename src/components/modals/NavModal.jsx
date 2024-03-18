@@ -1,9 +1,9 @@
-import React, { useContext, useState } from 'react';
-import DrawerWrapper from '../wrapper/Wrapper';
-import { Logo } from '../../assets/svgs';
-import { Link } from 'react-router-dom';
-import ClaimModal from './ClaimModal'; // Import the ClaimModal component
-import { AppDataContext } from '../../context/AppContext';
+import React, { useContext, useState } from "react";
+import DrawerWrapper from "../wrapper/Wrapper";
+import { Logo } from "../../assets/svgs";
+import { Link } from "react-router-dom";
+import ClaimModal from "./ClaimModal"; // Import the ClaimModal component
+import { AppDataContext } from "../../context/AppContext";
 
 const NavModal = ({ isOpen, closeDrawer }) => {
   const { setIsModalOpen, setClaimModalOpen } = useContext(AppDataContext);
@@ -38,7 +38,7 @@ const NavModal = ({ isOpen, closeDrawer }) => {
 
             <Link
               to=""
-              className="hover:text-[#E93c24] text-4xl"
+              className="hover:text-[#ed7363] text-4xl bg-[#E93c24] text-white py-2 px-6 rounded"
               onClick={handleClaimTicketClick}
             >
               Claim Ticket

@@ -29,14 +29,13 @@ const Spiritual = () => {
             holistic well-being.
           </p>
           <div className="">
-          <a
-            href="https://spiritualmealplanner.com/"
-            className="text-white bg-[#E93C24] rounded p-2 "
-          >
-            Get Your Meal Planner
-          </a>
+            <a
+              href="https://spiritualmealplanner.com/"
+              className="text-white bg-[#E93C24] rounded p-2 hover:bg-[#f86d5a] "
+            >
+              Get Your Meal Planner
+            </a>
           </div>
-         
         </div>
       </div>
     </div>

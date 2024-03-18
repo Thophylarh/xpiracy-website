@@ -2,7 +2,7 @@ import { zig } from '../../assets/png';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import useCreateNewsLetter from '../../hooks/useCreateNewsLetter';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { AppDataContext } from '../../context/AppContext';
 import { Alert } from '@mui/material';
 
@@ -13,9 +13,24 @@ const validationSchema = Yup.object().shape({
 });
 
 const Mail = () => {
-  const { makePostRequest, loading } = useCreateNewsLetter();
-  const { error, setError, successMessage, setSuccessMessage } =
-    useContext(AppDataContext);
+  const { makePostRequest, loading, setShowSuccessDiv, showSuccessDiv } =
+    useCreateNewsLetter();
+  const {
+    error,
+    setError,
+    successMessage,
+    setSuccessMessage,
+    showDiv,
+    setShowDiv,
+  } = useContext(AppDataContext);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowSuccessDiv(false);
+    }, 2000); // 2 seconds
+
+    return () => clearTimeout(timeout);
+  }, [showSuccessDiv]);
 
   const formik = useFormik({
     initialValues: {
@@ -28,6 +43,7 @@ const Mail = () => {
       await makePostRequest({
         email: values.email,
       });
+      formik.resetForm();
     },
   });
 
@@ -47,7 +63,9 @@ const Mail = () => {
             onSubmit={formik.handleSubmit}
             className="p-8 space-y-4 form-bg"
           >
-            <Alert severity="success">{successMessage}</Alert>
+            {showSuccessDiv && (
+              <Alert severity="success">{successMessage}</Alert>
+            )}
 
             <div className="">
               <label htmlFor="email" className="text-[16px] font-normal">
@@ -57,7 +75,7 @@ const Mail = () => {
                 id="email"
                 name="email"
                 type="email"
-                className="w-full p-2 border-2 rounded-md"
+                className="w-full p-2 border-2 rounded-md outline-none"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.email}
@@ -78,7 +96,7 @@ const Mail = () => {
             ) : (
               <button
                 type="submit"
-                className="bg-[#E93C24] rounded  p-2 text-white text-sm"
+                className="bg-[#E93C24] hover:bg-[#f86d5a] rounded  p-2 text-white text-sm "
               >
                 Send Message
               </button>

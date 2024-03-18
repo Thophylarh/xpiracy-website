@@ -18,7 +18,7 @@ const Hero = () => {
   const handleBookModalClose = () => setBookModalOpen(false);
 
   return (
-    <div className="flex justify-center text-white hero-img ">
+    <div className="flex justify-center text-white h-[80vh]">
       <div className="flex flex-col items-start w-11/12 my-auto">
         <div className="flex items-center gap-x-2">
           <div className="bg-[#e93c24] w-2 h-4"></div>
@@ -33,7 +33,7 @@ const Hero = () => {
         <p className="text-white">Receive extra content, community, resources, and more. </p> */}
         <button
           onClick={handlePifModalOpen}
-          className="bg-[#E93C24] p-2 rounded my-4 text-sm flex items-center gap-x-2"
+          className="bg-[#E93C24] p-2 rounded my-4 text-sm flex items-center gap-x-2 hover:bg-[#f86d5a]"
         >
           <ConfirmationNumberIcon sx={{ color: "#fff", fontSize: "18px" }} />
           Pay it Forward
