@@ -1,12 +1,12 @@
-import { man, movementImg } from "../../assets/png";
+import { movementImg } from "../../assets/png";
 
 const Journey = () => {
   return (
-    <div className="py-20 ">
-      <div className="journey-container md:px-[5rem] px-[2rem] md:w-9/12 w-11/12 flex  mx-auto relative ">
-        <div className="flex items-center justify-between ">
-          <div className="space-y-4">
-            <h2 className=" text-[#fff]  md:w-[350px] w-[270px] md:text-6xl text-4xl font-normal">
+    <div className="py-20 md:px-14 px-8 w">
+      <div className="journey-container md:px-[3rem] px-[1rem] md:w-10/12 flex md:mx-auto ">
+        <div className="md:flex items-center justify-between w-full ">
+          <div className="space-y-4  w-full">
+            <h2 className=" text-[#fff]  md:w-[350px] w-[270px] md:text-5xl text-5xl font-normal">
               Join The Movement
             </h2>
             <p className="text-white text-[14px] md:text-[16px] md:w-[400px] w-[300px]">
@@ -25,11 +25,11 @@ const Journey = () => {
               </a>
             </div>
           </div>
-          <div className="absolute md:-top-[63%] md:-right-[10%] md:block -top-[30%] -right-[3%] ">
+          <div className=" w-full">
             <img
               src={movementImg}
               alt=""
-              className="md:h-[500px] md:w-[500px] w-[200px] h-[200px]"
+              className="md:h-[400px] md:w-[400px] w-[200px] h-[200px] md:block hidden "
             />
           </div>
         </div>

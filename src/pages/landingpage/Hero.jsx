@@ -18,7 +18,7 @@ const Hero = () => {
   const handleBookModalClose = () => setBookModalOpen(false);
 
   return (
-    <div className="flex justify-center text-white hero-img">
+    <div className="flex justify-center text-white hero-img ">
       <div className="flex flex-col items-start w-11/12 my-auto">
         <div className="flex items-center gap-x-2">
           <div className="bg-[#e93c24] w-2 h-4"></div>
