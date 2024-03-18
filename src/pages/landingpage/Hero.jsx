@@ -27,7 +27,7 @@ const Hero = () => {
 
         <h1 className="md:text-[4rem] text-[2rem] font-bold">CHRISTPIRACY</h1>
         <h4 className="md:text-[16px] text-[14px] font-semibold">
-          IN THEATRES <span className="text-[#e93c24]">MARCH 20TH, 24TH.</span>{" "}
+          IN THEATRES <span className="text-[#e93c24]">MARCH 20TH, 24TH</span>{" "}
         </h4>
         {/* <button className="p-2 my-4 underline rounded text-[13px]">Sign Up For More</button>
         <p className="text-white">Receive extra content, community, resources, and more. </p> */}
