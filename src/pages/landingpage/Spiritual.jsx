@@ -21,7 +21,7 @@ const Spiritual = () => {
             <h3 className="text-2xl md:text-6xl font-normal text-white md:w-[500px]">
               GET SPIRITUAL MEAL PLANNER
             </h3>
-            <div className="flex items-center justify-end">
+            <div className="md:flex items-center justify-end">
               <img src={zig} className="w-8 h-8 md:w-14 md:h-14  " alt="" />
             </div>
           </div>
