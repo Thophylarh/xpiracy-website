@@ -15,7 +15,7 @@ const useCreateNewsLetter = () => {
         `${APP_CONFIG.BASE_URL}newsletter`,
         postData
       );
-      setSuccessMessage('Email Addes Successfully');
+      setSuccessMessage('Email Addes Successfully to newsletter');
       setLoading(false);
     } catch (error) {
       setError(error);

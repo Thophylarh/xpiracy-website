@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import useCreateNewsLetter from '../../hooks/useCreateNewsLetter';
 import { useContext } from 'react';
 import { AppDataContext } from '../../context/AppContext';
+import { Alert } from '@mui/material';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -24,7 +25,7 @@ const Mail = () => {
     validationSchema: validationSchema,
     onSubmit: async (values) => {
       console.log(values, 'emaill...');
-      const response = await makePostRequest({
+      await makePostRequest({
         email: values.email,
       });
     },
@@ -46,9 +47,8 @@ const Mail = () => {
             onSubmit={formik.handleSubmit}
             className="p-8 space-y-4 form-bg"
           >
-            <p className="text-[16px] color-[#5cb85c] font-normal">
-              {successMessage}
-            </p>
+            <Alert severity="success">{successMessage}</Alert>
+
             <div className="">
               <label htmlFor="email" className="text-[16px] font-normal">
                 Email
