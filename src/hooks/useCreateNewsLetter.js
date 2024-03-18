@@ -17,7 +17,9 @@ const useCreateNewsLetter = () => {
         postData
       );
       setShowSuccessDiv(true);
-      setSuccessMessage('Email Addes Successfully to newsletter');
+      setSuccessMessage(
+        'Congratulations! You have successfully joined our mailing list. You will be the first to receive information about us on the go!'
+      );
       setLoading(false);
     } catch (error) {
       setError(error);

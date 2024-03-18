@@ -144,7 +144,12 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
                   placeholder="Input your email"
                   emails={emails}
                   onChange={(_emails) => {
-                    setEmails(_emails);
+                    // Filter out excess emails beyond the slider value
+                    if (_emails.length <= sliderValue) {
+                      setEmails(_emails);
+                    } else {
+                      setEmails(_emails.slice(0, sliderValue));
+                    }
                   }}
                   maxTags={3}
                   autoFocus={true}

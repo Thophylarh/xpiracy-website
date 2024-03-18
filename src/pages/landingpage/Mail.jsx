@@ -101,7 +101,7 @@ const Mail = () => {
                 type="submit"
                 className="bg-[#E93C24] hover:bg-[#f86d5a] rounded-[40px]  p-4 text-white text-sm font-ppeiko "
               >
-                Send Message
+                SignUp For More
               </button>
             )}
           </form>
