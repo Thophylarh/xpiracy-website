@@ -164,9 +164,9 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
                     );
                   }}
                 />
-
+                {/* 
                 <h4>react-multi-email value</h4>
-                <h3>Focused: {focused ? 'true' : 'false'}</h3>
+                <h3>Focused: {focused ? 'true' : 'false'}</h3> */}
                 <p>{emails.join(', ') || 'empty'}</p>
                 {currency2 === 0 ||
                 emails.length === 0 ||
@@ -181,7 +181,7 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
                 ) : (
                   <button
                     onClick={handleMakePayment}
-                    className="bg-[#E93C24] cursor-pointer text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-3xl hover:bg-[#f86d5a]"
+                    className="bg-[#E93C24] w-full cursor-pointer text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-3xl hover:bg-[#f86d5a]"
                   >
                     <img src={love} alt="" />
                     <p>Pay it Forward</p>

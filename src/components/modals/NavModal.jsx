@@ -57,7 +57,7 @@ const NavModal = ({ isOpen, closeDrawer }) => {
 
             <div
               onClick={handleClaimTicketClick}
-              className="bg-[#E93c24] py-3 hover:text-[#ed7363] text-xl md:text-2xl text-center text-white  px-6 rounded-[40px] flex items-center justify-center"
+              className="bg-[#E93c24] cursor-pointer py-3 hover:text-[#fff] text-xl md:text-2xl text-center text-white  px-6 rounded-[40px] flex items-center justify-center"
             >
               Claim Ticket
             </div>
