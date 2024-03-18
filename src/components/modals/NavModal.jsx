@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react";
-import DrawerWrapper from "../wrapper/Wrapper";
-import { Logo } from "../../assets/svgs";
-import { Link } from "react-router-dom";
-import ClaimModal from "./ClaimModal"; // Import the ClaimModal component
-import { AppDataContext } from "../../context/AppContext";
-import { handleOpenInNewTab } from "../../utils/handleOpenInNewTab";
+import React, { useContext, useState } from 'react';
+import DrawerWrapper from '../wrapper/Wrapper';
+import { Logo } from '../../assets/svgs';
+import { Link } from 'react-router-dom';
+import ClaimModal from './ClaimModal'; // Import the ClaimModal component
+import { AppDataContext } from '../../context/AppContext';
+import { handleOpenInNewTab } from '../../utils/handleOpenInNewTab';
 
 const NavModal = ({ isOpen, closeDrawer }) => {
   const { setIsModalOpen, setClaimModalOpen, handlePifModalOpen } =
@@ -35,34 +35,31 @@ const NavModal = ({ isOpen, closeDrawer }) => {
             </div>
           </div>
           <div className="flex items-center justify-center  flex-col text-[48px] font-bold text-[#fff] py-20 space-y-8">
-            <Link to="" className="hover:text-[#E93c24] text-xl md:text-4xl ">
+            <Link to="/" className="hover:text-[#E93c24] text-xl md:text-2xl ">
               Home
             </Link>
             <Link
               onClick={handlePaayItFwdModal}
               to=""
-              className="hover:text-[#E93c24] text-xl md:text-4xl "
+              className="hover:text-[#E93c24] text-xl md:text-2xl "
             >
               Pay It Forward
             </Link>
             <Link
               to=""
               onClick={() =>
-                handleOpenInNewTab("https://spiritualmealplanner.com/")
+                handleOpenInNewTab('https://spiritualmealplanner.com/')
               }
-              className="hover:text-[#E93c24] text-xl md:text-4xl flex items-center justify-center"
+              className="hover:text-[#E93c24] text-xl md:text-2xl flex items-center justify-center"
             >
               Get Meal Planner
             </Link>
 
-            <div className="bg-[#E93c24] hover:text-[#ed7363] py-2 px-6 rounded-[40px] flex items-center justify-center">
-              <Link
-                to=""
-                className="text-2xl md:text-4xl text-white"
-                onClick={handleClaimTicketClick}
-              >
-                Claim Ticket
-              </Link>
+            <div
+              onClick={handleClaimTicketClick}
+              className="bg-[#E93c24] cursor-pointer py-3 hover:text-[#fff] text-xl md:text-2xl text-center text-white  px-6 rounded-[40px] flex items-center justify-center"
+            >
+              Claim Ticket
             </div>
           </div>
         </div>

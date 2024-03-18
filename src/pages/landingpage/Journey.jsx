@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import { movementImg } from "../../assets/png";
-import { handleOpenInNewTab } from "../../utils/handleOpenInNewTab";
+import { Link } from 'react-router-dom';
+import { movementImg } from '../../assets/png';
+import { handleOpenInNewTab } from '../../utils/handleOpenInNewTab';
 
 const Journey = () => {
   return (
@@ -21,7 +21,7 @@ const Journey = () => {
             <Link
               to=""
               onClick={() =>
-                handleOpenInNewTab("https://www.skool.com/christspiracy/about")
+                handleOpenInNewTab('https://www.skool.com/christspiracy/about')
               }
               className="text-white bg-[#E93C24] cursor-pointer rounded-[40px] p-4 hover:bg-[#f86d5a]"
             >

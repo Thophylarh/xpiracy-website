@@ -151,11 +151,13 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
                 />
                 <p className="text-[#7D7A78] text-[12px] mb-2">Add Emails</p>
                 <ReactMultiEmail
+                  style={{ borderColor: '#b5b8c1', borderWidth: '1px' }}
                   placeholder="Input your email"
                   emails={emails}
                   onChange={(_emails) => {
                     setEmails(_emails);
                   }}
+                  maxTags={3}
                   autoFocus={true}
                   onFocus={() => setFocused(true)}
                   onBlur={() => setFocused(false)}
@@ -173,23 +175,24 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
                     );
                   }}
                 />
-
+                {/* 
                 <h4>react-multi-email value</h4>
-                <h3>Focused: {focused ? "true" : "false"}</h3>
-                <p>{emails.join(", ") || "empty"}</p>
-                {currency2 === 0 ? (
+                <h3>Focused: {focused ? 'true' : 'false'}</h3> */}
+                <p>{emails.join(', ') || 'empty'}</p>
+                {currency2 === 0 ||
+                emails.length === 0 ||
+                inputValue.trim() === '' ? (
                   <button
                     disabled={true}
                     className="bg-[#808080] text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-3xl"
                   >
                     <img src={love} alt="" />
-
                     {loading ? <p>Redirecting....</p> : <p>Pay it Forward</p>}
                   </button>
                 ) : (
                   <button
                     onClick={handleMakePayment}
-                    className="bg-[#E93C24] cursor-pointer text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-3xl hover:bg-[#f86d5a]"
+                    className="bg-[#E93C24] w-full cursor-pointer text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-3xl hover:bg-[#f86d5a]"
                   >
                     <img src={love} alt="" />
                     <p>Pay it Forward</p>

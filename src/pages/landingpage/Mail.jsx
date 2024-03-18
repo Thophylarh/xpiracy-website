@@ -68,14 +68,17 @@ const Mail = () => {
             )}
 
             <div className="">
-              <label htmlFor="email" className="text-[16px] font-normal text-[#838485] font-ppeiko">
+              <label
+                htmlFor="email"
+                className="text-[15px] font-normal text-[#838485] font-ppeiko"
+              >
                 Email
               </label>
               <input
                 id="email"
                 name="email"
                 type="email"
-                className="w-full p-2 border-2 rounded-md outline-none"
+                className="w-full p-2 border-[1px] border-[#b5b8c1] rounded-md outline-none"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.email}
@@ -88,7 +91,7 @@ const Mail = () => {
             {loading ? (
               <button
                 type="submit"
-                className="bg-[#808080] rounded  p-2 text-white text-sm"
+                className="bg-[#808080]  hover:bg-[#f86d5a] rounded-[40px]  p-4 text-white  font-ppeiko  text-sm"
                 disabled={true}
               >
                 Submitting...

@@ -12,13 +12,13 @@ import {
 } from "@mui/material";
 
 const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "90%", // Adjusted width for mobile screens
-  maxWidth: 600, // Max width for larger screens
-  bgcolor: "background.paper",
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '90%', // Adjusted width for mobile screens
+  maxWidth: 550, // Max width for larger screens
+  bgcolor: 'background.paper',
   boxShadow: 24,
   borderRadius: 5,
   p: 4,
@@ -177,11 +177,11 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
 
               <div className="p-2 border-2 rounded-md">
                 <button
-                  className="flex items-center justify-center gap-x-2 w-full"
+                  className="flex items-center justify-center w-full gap-x-2"
                   onClick={handleBookModalOpen}
                 >
                   <ConfirmationNumberIcon
-                    sx={{ color: "#565453", fontSize: "18px" }}
+                    sx={{ color: '#565453', fontSize: '18px' }}
                   />
                   <p className="text-xs text-[#565453]">Book Ticket</p>
                 </button>
