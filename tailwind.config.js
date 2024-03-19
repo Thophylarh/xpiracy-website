@@ -4,7 +4,9 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "hero-img": "url('/src/assets/png/Jesusimg.png')",
+        "hero-img": "url('/src/assets/png/hero-img.png')",
+        "mobile-img": "url('/src/assets/png/Jesusimg.png')",
+    
         overlay: "url('/src/assets/png/fadeOverlay.png')",
       },
       fontFamily: {
