@@ -157,13 +157,20 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
 
             <br />
 
-            <button
-              onClick={handleMakePayment}
-              className="bg-[#E93C24] cursor-pointer text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-[40px] w-full"
-            >
-              <img src={love} alt="" />
-              {loading ? <p>Redirecting....</p> : <p>Pay it Forward</p>}
-            </button>
+            {currency === 0 ? (
+              <button className="bg-[#808080] text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-[40px] w-full">
+                <img src={love} alt="" />
+                <p>Pay it Forward</p>
+              </button>
+            ) : (
+              <button
+                onClick={handleMakePayment}
+                className="bg-[#E93C24] cursor-pointer text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-[40px] w-full"
+              >
+                <img src={love} alt="" />
+                {loading ? <p>Redirecting....</p> : <p>Pay it Forward</p>}
+              </button>
+            )}
 
             <div className="mt-6 text-black ">
               <div className="mb-8 space-y-2">
@@ -181,9 +188,11 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
                   className="flex items-center justify-center w-full gap-x-1"
                   onClick={handleBookModalOpen}
                 >
-                  <ConfirmationNumberIcon
-                    sx={{ color: '#565453', fontSize: '18px' }}
-                  />
+                  <div>
+                    <ConfirmationNumberIcon
+                      sx={{ color: '#565453', fontSize: '18px' }}
+                    />
+                  </div>
                   <p className="text-xs text-[#565453]">Gift a Ticket</p>
                 </button>
               </div>
