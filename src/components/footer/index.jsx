@@ -36,7 +36,7 @@ const Footer = () => {
               <button className="bg-white rounded-[50%] w-[30px] h-[30px]  cursor-pointer">
                 {icon}
               </button>
-              {/* <img src={img} alt="" className="md:w-20 md:h-20 w-12 h-12" /> */}
+              {/* <img src={img} alt="" className="w-12 h-12 md:w-20 md:h-20" /> */}
             </div>
           ))}
         </div>
