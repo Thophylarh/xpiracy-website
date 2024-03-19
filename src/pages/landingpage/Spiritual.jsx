@@ -12,7 +12,7 @@ const Spiritual = () => {
             <img
               src={mealImg}
               alt=""
-              className="md:w-[800px] md:h-[500px]  w-[600px] h-[400px]
+              className="md:w-[800px] md:h-[500px]  w-[400px] h-[300px]
               "
             />
           </div>
