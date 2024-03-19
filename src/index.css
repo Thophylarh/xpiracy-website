@@ -3,30 +3,44 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "PPEiko";
-  src: url("../src/fonts/PPFormula-Medium.otf");
+  font-family: 'PPEiko';
+  src: url('../src/fonts/PPFormula-Medium.otf');
 }
 @font-face {
-  font-family: "PPFormula";
-  src: url("../src/fonts/PPFormula-Medium.otf");
+  font-family: 'PPFormula';
+  src: url('../src/fonts/PPFormula-Medium.otf');
 }
 h1,
 h2,
 h3,
 h4,
 h5 {
-  font-family: "PPEiko", sans-serif;
+  font-family: 'PPEiko', sans-serif;
 }
 p,
 a,
 button {
-  font-family: "PPFormula", sans-serif;
- 
+  font-family: 'PPFormula', sans-serif;
 }
 
 body {
   background: #050a0d;
   color: white;
+}
+
+.custom-input::-webkit-inner-spin-button,
+.custom-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input:focus {
+  outline: none;
+  border-color: #2f2e2e;
+}
+input {
+  border: 1px solid #565453;
+  border-radius: 5px;
 }
 
 @layer components {
@@ -37,7 +51,7 @@ body {
     height: 80vh;
   }
   .hero-img::before {
-    content: "";
+    content: '';
     width: 100%;
     height: 80vh;
     position: absolute;
@@ -48,7 +62,7 @@ body {
         rgba(0, 0, 0, 0.7) 0%,
         rgba(0, 0, 0, 0) 100%
       ),
-      url("./assets/png/fadeOverlay.png") no-repeat;
+      url('./assets/png/fadeOverlay.png') no-repeat;
     background-size: cover;
   }
   .hero-img .flex,
@@ -121,9 +135,9 @@ body {
     cursor: pointer;
   }
   .red-tint {
-    filter: grayscale(100%) brightness(50%) sepia(100%) hue-rotate(0deg) saturate(10000%);
+    filter: grayscale(100%) brightness(50%) sepia(100%) hue-rotate(0deg)
+      saturate(10000%);
   }
-  
 
   @keyframes slidedown {
     from {

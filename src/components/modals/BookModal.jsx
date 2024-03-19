@@ -152,7 +152,7 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
                 />
                 <p className="text-[#7D7A78] text-[12px] mb-2">Add Emails</p>
                 <ReactMultiEmail
-                  style={{ borderColor: '#b5b8c1', borderWidth: '1px' }}
+                  style={{ borderColor: '#565453', borderWidth: '1px' }}
                   placeholder="Input your email"
                   emails={emails}
                   onChange={(_emails) => {
@@ -196,7 +196,7 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
                 inputValue.trim() === '' ? (
                   <button
                     disabled={true}
-                    className="bg-[#808080] text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-3xl"
+                    className="bg-[#808080] w-full text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-3xl"
                   >
                     <img src={love} alt="" />
                     {loading ? <p>Redirecting....</p> : <p>Pay it Forward</p>}

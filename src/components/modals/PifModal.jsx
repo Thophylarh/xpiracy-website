@@ -7,9 +7,7 @@ import BookModal from './BookModal';
 import useMakePayment from '../../hooks/usePayment';
 import publicIp from 'react-public-ip';
 import CloseIcon from '@mui/icons-material/Close';
-import {
-  IconButton, // Import IconButton
-} from '@mui/material';
+import { IconButton } from '@mui/material';
 
 const style = {
   position: 'absolute',
@@ -25,32 +23,34 @@ const style = {
 };
 
 const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
-  const [sliderValue, setSliderValue] = useState(0);
+  const [sliderValue, setSliderValue] = useState(2);
   const [bookTicketModalOpen, setBookTicketModalOpen] = useState(false);
-  const [currency, setCurrency] = useState(0);
+  const [currency, setCurrency] = useState(30);
   const [currency2, setCurrency2] = useState(0);
+  const [inputValue, setInputValue] = useState(2); // State for input value
 
   const { makePostRequest, loading } = useMakePayment();
 
   const handleSliderChange = (event, newValue) => {
-    if (newValue > sliderValue) {
-      // Slider value increased
-      setCurrency(
-        (prevCurrency) => prevCurrency + (newValue - sliderValue) * 15
-      );
-      setCurrency2(
-        (prevCurrency) => prevCurrency + (newValue - sliderValue) * 15
-      );
-    } else if (newValue < sliderValue) {
-      // Slider value decreased
-      setCurrency(
-        (prevCurrency) => prevCurrency - (sliderValue - newValue) * 15
-      );
-      setCurrency2(
-        (prevCurrency) => prevCurrency - (sliderValue - newValue) * 15
-      );
-    }
+    setCurrency(newValue * 15);
     setSliderValue(newValue);
+    setInputValue(newValue.toString());
+  };
+
+  const handleInputChange = (event) => {
+    const newValue = event.target.value.trim();
+    setInputValue(newValue);
+
+    if (newValue === '') {
+      setSliderValue(0);
+      setCurrency(0);
+    } else {
+      const parsedValue = parseInt(newValue);
+      if (!isNaN(parsedValue)) {
+        setSliderValue(parsedValue);
+        setCurrency(parsedValue * 15);
+      }
+    }
   };
 
   const handleMakePayment = async () => {
@@ -78,6 +78,12 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
     setBookTicketModalOpen(false);
   };
 
+  const customInputStyle = {
+    appearance: 'none',
+    WebkitAppearance: 'none' /* for Webkit browsers */,
+    MozAppearance: 'textfield' /* for Firefox */,
+  };
+
   return (
     <>
       <Modal
@@ -99,7 +105,6 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
               <CloseIcon />
             </IconButton>
             <div>
-              {/* <p className="text-xl font-normal text-black">{`$${amount}`}</p> */}
               <p className="text-xl font-normal text-black">$ {currency}</p>
             </div>
             <div className="text-xl font-medium text-black">
@@ -138,21 +143,26 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
                   }}
                 />
               </Box>
-              <div className="px-8 py-2 border rounded">
-                <p className="text-xs text-black">{sliderValue}</p>
-              </div>
+
+              <input
+                type="number"
+                value={inputValue}
+                onChange={handleInputChange}
+                className="text-xs custom-input text-black border px-5 py-2 w-16 text-center"
+                placeholder="0"
+              />
             </div>
 
             <br />
 
-            {currency2 === 0 ? (
+            {/* {currency2 === 0 ? (
               <button
                 disabled={true}
                 className="bg-[#808080] text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-3xl w-full"
               >
                 <img src={love} alt="" />
 
-                {loading ? <p>Redirecting....</p> : <p>Pay it Forward</p>}
+               
               </button>
             ) : (
               <button
@@ -160,9 +170,17 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
                 className="bg-[#E93C24] cursor-pointer text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-[40px] w-full"
               >
                 <img src={love} alt="" />
-                <p>Pay it Forward</p>
+                {loading ? <p>Redirecting....</p> : <p>Pay it Forward</p>}
               </button>
-            )}
+            )} */}
+
+            <button
+              onClick={handleMakePayment}
+              className="bg-[#E93C24] cursor-pointer text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-[40px] w-full"
+            >
+              <img src={love} alt="" />
+              {loading ? <p>Redirecting....</p> : <p>Pay it Forward</p>}
+            </button>
 
             <div className="mt-6 text-black ">
               <div className="mb-8 space-y-2">
@@ -175,7 +193,7 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
                 </p>
               </div>
 
-              <div className="p-2 border-2 rounded-md">
+              <div className="p-2 border-[1px] py-4 border-[#565453] rounded-md">
                 <button
                   className="flex items-center justify-center w-full gap-x-2"
                   onClick={handleBookModalOpen}
