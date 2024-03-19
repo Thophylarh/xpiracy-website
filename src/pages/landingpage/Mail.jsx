@@ -58,7 +58,7 @@ const Mail = () => {
             {/* <img src={zig} className="w-8 h-8 md:w-14 md:h-14" alt="" /> */}
           </div>
         </div>
-        <div className="w-11/12 my-4 md:w-6/12 md:my-0">
+        <div className="w-full my-4 md:w-6/12 md:my-0">
           <form
             onSubmit={formik.handleSubmit}
             className="p-8 space-y-4 form-bg"

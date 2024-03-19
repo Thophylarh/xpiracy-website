@@ -1,6 +1,7 @@
 import React from "react";
 import { fbIcon, igIcon, xIcon } from "../../assets/svgs";
 import { handleOpenInNewTab } from "../../utils/handleOpenInNewTab";
+import YouTubeIcon from "@mui/icons-material/YouTube";
 const footerIcons = [
   {
     id: 0,
@@ -14,8 +15,8 @@ const footerIcons = [
   },
   {
     id: 2,
-    img: xIcon,
-    link: "https://www.facebook.com/christspiracy/",
+    img: <YouTubeIcon />,
+    link: "https://www.youtube.com/@christspiracyfilm",
   },
 ];
 const Footer = () => {

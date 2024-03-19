@@ -106,7 +106,7 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
               {loading && <p>loading......</p>}
 
               <p className="text-[16px] font-bold">
-                Pay It Forward To A Stranger
+                Pay It Forward To A Stranger.
               </p>
 
               <p className="text-xs text-[#565453] ">
@@ -171,7 +171,7 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
                 </h4>
                 <p className="text-xs ">
                   Pay it forward and book a movie ticket for someone dear to you
-                  to watch this at the movie theaters
+                  to watch this at the movie theaters.
                 </p>
               </div>
 

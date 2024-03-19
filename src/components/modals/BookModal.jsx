@@ -105,11 +105,11 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
             <div className="mb-8 space-y-2 text-black">
               <p className="text-xl font-normal text-black">$ {currency}</p>
               <h4 className="text-lg font-bold">
-                How Many People Do You Want To Pay For
+                How Many People Do You Want To Pay For?
               </h4>
               <p className="text-xs ">
                 Provide free tickets for someone to watch this at the movie
-                theaters
+                theaters.
               </p>
             </div>
             <div className="flex items-center gap-x-2">
@@ -184,7 +184,7 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
                 />
                 {emailError && (
                   <p className="text-red-500 pt-3 text-sm">
-                    You can't add more emails than the current slider value
+                    You can't add more emails than the current slider value.
                   </p>
                 )}
                 {/* 
