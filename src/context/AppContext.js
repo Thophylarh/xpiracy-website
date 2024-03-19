@@ -11,9 +11,14 @@ const AppContextProvider = ({ children }) => {
   const [pifModalOpen, setPifModalOpen] = useState(false);
   const handlePifModalOpen = () => setPifModalOpen(true);
   const handlePifModalClose = () => setPifModalOpen(false);
+  const [bookModalOpen, setBookModalOpen] = useState(false);
 
   const handleClaimTicketClick = () => {
     setClaimModalOpen(true);
+  };
+  const handleBookModalOpen = () => {
+    setPifModalOpen(false);
+    setBookModalOpen(true);
   };
 
   const toggleModal = () => {
@@ -42,6 +47,9 @@ const AppContextProvider = ({ children }) => {
         setPifModalOpen,
         handlePifModalOpen,
         handlePifModalClose,
+        bookModalOpen,
+        setBookModalOpen,
+        handleBookModalOpen,
       }}
     >
       {children}

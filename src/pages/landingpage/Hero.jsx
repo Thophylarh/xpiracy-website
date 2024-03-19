@@ -1,21 +1,22 @@
-import React, { useState } from "react";
-import PifModal from "../../components/modals/PifModal";
-import BookModal from "../../components/modals/BookModal";
-import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
-import mobileImg from "../../assets/png/Jesusimg.png";
-import webImg from "../../assets/png/hero-img.png";
+import React, { useContext, useState } from 'react';
+import PifModal from '../../components/modals/PifModal';
+import BookModal from '../../components/modals/BookModal';
+import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
+import { AppDataContext } from '../../context/AppContext';
 
 const Hero = () => {
   const [pifModalOpen, setPifModalOpen] = useState(false);
-  const [bookModalOpen, setBookModalOpen] = useState(false);
+  // const [bookModalOpen, setBookModalOpen] = useState(false);
+  const {
+    bookModalOpen,
+    setBookModalOpen,
+    handleBookModalOpen,
+    handlePifModalOpen,
+    handlePifModalClose,
+  } = useContext(AppDataContext);
 
-  const handlePifModalOpen = () => setPifModalOpen(true);
-  const handlePifModalClose = () => setPifModalOpen(false);
-
-  const handleBookModalOpen = () => {
-    setPifModalOpen(false); // Close PifModal when BookModal opens
-    setBookModalOpen(true);
-  };
+  // const handlePifModalOpen = () => setPifModalOpen(true);
+  // const handlePifModalClose = () => setPifModalOpen(false);
 
   const handleBookModalClose = () => setBookModalOpen(false);
 
@@ -32,20 +33,20 @@ const Hero = () => {
 
         <h1 className="md:text-[4rem] text-[2rem] font-bold">CHRISTSPIRACY</h1>
         <h4 className="md:text-[16px] text-[14px] font-semibold">
-          IN THEATRES <span className="text-[#e93c24]">MARCH 20TH, 24TH.</span>{" "}
+          IN THEATRES <span className="text-[#e93c24]">MARCH 20TH, 24TH.</span>{' '}
         </h4>
 
         <button
           onClick={handlePifModalOpen}
           className="bg-[#E93C24] p-4 rounded-[40px] my-4 text-sm flex items-center hover:bg-[#f86d5a]"
         >
-          <ConfirmationNumberIcon sx={{ color: "#fff", fontSize: "18px" }} />
+          <ConfirmationNumberIcon sx={{ color: '#fff', fontSize: '18px' }} />
           <p className="ml-2">Pay it Forward</p>
         </button>
 
         <p className="text-[12px] text-[#d8d6d6] md:w-[400px]">
           Allow someone else to watch Christspiracy for free. Your generosity
-          helps spread this message far and wide.{" "}
+          helps spread this message far and wide.{' '}
         </p>
       </div>
 
