@@ -18,7 +18,7 @@ const Journey = () => {
             <h2 className="text-[#fff] md:w-[350px] w-[270px] text-2xl md:text-6xl font-normal">
               JOIN THE MOVEMENT.
             </h2>
-            <p className="text-[10px] text-[#d8d6d6] pb-5 md:text-[12px] md:w-[400px] my-4">
+            <p className=" text-[#d8d6d6] pb-5 text-[12px] md:w-[400px] my-4">
               Our community on “Skool” rewards you for your activism while
               connecting you to others passionate about compassion.
             </p>
