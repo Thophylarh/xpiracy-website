@@ -5,3 +5,4 @@ export { default as zig } from "./zig.png";
 export { default as man } from "./man.png";
 export { default as movementImg } from "./movement-img.png";
 export { default as mealImg } from "./meal-img.png";
+export { default as mainLogo } from "./cp-logo.png";

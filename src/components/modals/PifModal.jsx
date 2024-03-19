@@ -7,7 +7,9 @@ import BookModal from './BookModal';
 import useMakePayment from '../../hooks/usePayment';
 import publicIp from 'react-public-ip';
 import CloseIcon from '@mui/icons-material/Close';
-import { IconButton } from '@mui/material';
+import {
+  IconButton, // Import IconButton
+} from '@mui/material';
 
 const style = {
   position: 'absolute',
@@ -155,25 +157,6 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
 
             <br />
 
-            {/* {currency2 === 0 ? (
-              <button
-                disabled={true}
-                className="bg-[#808080] text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-3xl w-full"
-              >
-                <img src={love} alt="" />
-
-               
-              </button>
-            ) : (
-              <button
-                onClick={handleMakePayment}
-                className="bg-[#E93C24] cursor-pointer text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-[40px] w-full"
-              >
-                <img src={love} alt="" />
-                {loading ? <p>Redirecting....</p> : <p>Pay it Forward</p>}
-              </button>
-            )} */}
-
             <button
               onClick={handleMakePayment}
               className="bg-[#E93C24] cursor-pointer text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-[40px] w-full"
@@ -189,19 +172,19 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
                 </h4>
                 <p className="text-xs ">
                   Pay it forward and book a movie ticket for someone dear to you
-                  to watch this at the movie theaters
+                  to watch this at the movie theaters.
                 </p>
               </div>
 
               <div className="p-2 border-[1px] py-4 border-[#565453] rounded-md">
                 <button
-                  className="flex items-center justify-center w-full gap-x-2"
+                  className="flex items-center justify-center w-full gap-x-1"
                   onClick={handleBookModalOpen}
                 >
                   <ConfirmationNumberIcon
                     sx={{ color: '#565453', fontSize: '18px' }}
                   />
-                  <p className="text-xs text-[#565453]">Book Ticket</p>
+                  <p className="text-xs text-[#565453]">Gift a Ticket</p>
                 </button>
               </div>
             </div>
