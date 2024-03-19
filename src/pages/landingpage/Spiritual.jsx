@@ -28,7 +28,7 @@ const Spiritual = () => {
           </div>
 
           <div>
-            <p className="text-[12px] text-[#d8d6d6] md:w-[500px] mb-8">
+            <p className="md:text-[12px] text-[#d8d6d6] md:w-[500px] mb-8 text-[10px]">
               Elevate your mind, nourish your body, and rejuvenate your spirit
               with our plant-based Spiritual Meal Planner – your personal guide
               to holistic well-being.
