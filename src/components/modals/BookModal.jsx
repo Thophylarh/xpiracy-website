@@ -14,9 +14,9 @@ import { Close as CloseIcon } from '@mui/icons-material';
 const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
   const [emails, setEmails] = useState([]);
   const [focused, setFocused] = useState(false);
-  const [sliderValue, setSliderValue] = useState(0);
-  const [currency, setCurrency] = useState(0);
-  const [currency2, setCurrency2] = useState(0);
+  const [sliderValue, setSliderValue] = useState(2);
+  const [currency, setCurrency] = useState(30);
+  const [currency2, setCurrency2] = useState();
   const { makePostRequest, loading } = useMakePayment();
   const [inputValue, setInputValue] = useState('');
   const [emailError, setEmailError] = useState(false);
@@ -52,6 +52,7 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
   const handleMakePayment = async () => {
     const ipv4 = (await publicIp.v4()) || '';
     const general = `${window.location.protocol}//${window.location.host}/multiPayment`;
+    const faliure = `${window.location.protocol}//${window.location.host}`;
     setCurrency2(0);
     const payload = {
       amount: currency,
@@ -59,7 +60,7 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
       numberOfPeople: sliderValue.toString(),
       ipAddress: ipv4,
       successUrl: general,
-      cancelUrl: general,
+      cancelUrl: faliure,
       payerName: 'mike',
       email: emails?.join(', '),
       payerName: inputValue,

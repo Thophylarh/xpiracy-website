@@ -58,6 +58,7 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
   const handleMakePayment = async () => {
     const ipv4 = (await publicIp.v4()) || '';
     const general = `${window.location.protocol}//${window.location.host}/singlePayment`;
+    const faliure = `${window.location.protocol}//${window.location.host}`;
     setCurrency2(0);
     const payload = {
       amount: currency,
@@ -65,7 +66,7 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
       numberOfPeople: sliderValue.toString(),
       ipAddress: ipv4,
       successUrl: general,
-      cancelUrl: general,
+      cancelUrl: faliure,
     };
 
     console.log(payload, 'sent...');
@@ -180,6 +181,16 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
                 <p className="text-xs ">
                   Pay it forward and book a movie ticket for someone dear to you
                   to watch this at the movie theaters.
+                </p>
+              </div>
+
+              <div>
+                <h4 className="text-lg font-bold">Disclaimer</h4>
+                <p className="text-xs pb-7 pt-2  leading-tight">
+                  {' '}
+                  The funds from unclaimed Pay-it-Forward tickets will be
+                  utilized for digital streams of the film and the creation of
+                  future Christspiracy-related content/films.
                 </p>
               </div>
 
