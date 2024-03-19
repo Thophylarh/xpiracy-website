@@ -6,13 +6,13 @@ import { handleOpenInNewTab } from "../../utils/handleOpenInNewTab";
 const Spiritual = () => {
   return (
     <div className="">
-      <div className="md:items-center md:justify-between md:w-11/12 md:flex  ">
+      <div className="md:items-center md:justify-between md:w-11/12 md:flex ">
         <div className="w-12/12">
           <div className="">
             <img
               src={mealImg}
               alt=""
-              className="md:w-[800px] md:h-[500px]  
+              className="md:w-[800px] md:h-[500px]  w-[600px] h-[400px]
               "
             />
           </div>
@@ -22,8 +22,8 @@ const Spiritual = () => {
             <h3 className="text-2xl md:text-6xl font-normal text-white md:w-[550px]">
               SPIRITUAL MEAL PLANNER.
             </h3>
-            <div className="md:flex items-center justify-end">
-              {/* <img src={zig} className="w-8 h-8 md:w-14 md:h-14  " alt="" /> */}
+            <div className="items-center justify-end md:flex">
+              {/* <img src={zig} className="w-8 h-8 md:w-14 md:h-14 " alt="" /> */}
             </div>
           </div>
 
