@@ -6,18 +6,13 @@ import { handleOpenInNewTab } from "../../utils/handleOpenInNewTab";
 const Spiritual = () => {
   return (
     <div className="">
-      <div className="md:items-center md:justify-between md:w-11/12 md:flex ">
-        <div className="w-12/12">
-          <div className="">
-            <img
-              src={mealImg}
-              alt=""
-              className="md:w-[800px] md:h-[500px]  w-[400px] h-[300px]
-              "
-            />
+      <div className="md:items-center md:justify-between md:w-11/12 md:flex">
+        <div className="w-full md:w-1/2">
+          <div className="aspect-w-4 aspect-h-3">
+            <img src={mealImg} alt="" className="object-cover w-full h-full" />
           </div>
         </div>
-        <div className="px-4 space-y-6 md:px-0">
+        <div className="px-4 space-y-6 md:px-0 md:w-1/2">
           <div className="mt-8">
             <h3 className="text-2xl md:text-6xl font-normal text-white md:w-[550px]">
               SPIRITUAL MEAL PLANNER.
@@ -28,7 +23,7 @@ const Spiritual = () => {
           </div>
 
           <div>
-            <p className="text-[12px] text-[#d8d6d6] md:w-[500px] mb-8 ">
+            <p className="text-[12px] text-[#d8d6d6] md:w-[500px] mb-8">
               Elevate your mind, nourish your body, and rejuvenate your spirit
               with our plant-based Spiritual Meal Planner – your personal guide
               to holistic well-being.
