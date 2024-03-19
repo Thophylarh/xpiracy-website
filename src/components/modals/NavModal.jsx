@@ -58,7 +58,7 @@ const NavModal = ({ isOpen, closeDrawer }) => {
             <Link
               to=""
               onClick={() =>
-                handleOpenInNewTab("")
+                handleOpenInNewTab("https://www.skool.com/christspiracy/about")
               }
               className="hover:text-[#E93c24] text-xl md:text-2xl flex items-center justify-center"
             >

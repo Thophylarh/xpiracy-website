@@ -180,9 +180,11 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
                   className="flex items-center justify-center w-full gap-x-1"
                   onClick={handleBookModalOpen}
                 >
-                  <ConfirmationNumberIcon
-                    sx={{ color: "#565453", fontSize: "18px" }}
-                  />
+                  <div>
+                    <ConfirmationNumberIcon
+                      sx={{ color: "#565453", fontSize: "18px" }}
+                    />
+                  </div>
                   <p className="text-xs text-[#565453]">Gift a Ticket</p>
                 </button>
               </div>

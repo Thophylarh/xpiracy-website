@@ -33,12 +33,16 @@ const Hero = () => {
         <p className="text-white">Receive extra content, community, resources, and more. </p> */}
         <button
           onClick={handlePifModalOpen}
-          className="bg-[#E93C24] p-4 rounded-[40px] my-4 text-sm flex items-center gap-x-2 hover:bg-[#f86d5a]"
+          className="bg-[#E93C24] p-4 rounded-[40px] my-4 text-sm flex items-center hover:bg-[#f86d5a]"
         >
           <ConfirmationNumberIcon sx={{ color: "#fff", fontSize: "18px" }} />
-          Pay it Forward
+          <p className="ml-2">Pay it Forward</p>
         </button>
-        <p className="text-[12px] text-[#d8d6d6] md:w-[400px]">Allow someone else to watch Christspiracy for free. Your generosity helps spread this message far and wide. </p>
+
+        <p className="text-[12px] text-[#d8d6d6] md:w-[400px]">
+          Allow someone else to watch Christspiracy for free. Your generosity
+          helps spread this message far and wide.{" "}
+        </p>
       </div>
       <PifModal
         open={pifModalOpen}

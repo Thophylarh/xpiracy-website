@@ -1,21 +1,21 @@
-import React from 'react';
-import { fbIcon, igIcon, xIcon } from '../../assets/svgs';
-import { handleOpenInNewTab } from '../../utils/handleOpenInNewTab';
+import React from "react";
+import { fbIcon, igIcon, xIcon } from "../../assets/svgs";
+import { handleOpenInNewTab } from "../../utils/handleOpenInNewTab";
 const footerIcons = [
   {
     id: 0,
     img: fbIcon,
-    link: 'https://www.facebook.com/christspiracy/',
+    link: "https://www.facebook.com/christspiracy/",
   },
   {
     id: 1,
     img: igIcon,
-    link: 'https://www.instagram.com/christspiracy/',
+    link: "https://www.instagram.com/christspiracy/",
   },
   {
     id: 2,
     img: xIcon,
-    link: 'https://www.facebook.com/christspiracy/',
+    link: "https://www.facebook.com/christspiracy/",
   },
 ];
 const Footer = () => {
@@ -23,13 +23,13 @@ const Footer = () => {
     <div className="bg-[#212121] py-4 mt-4 ">
       <div className="flex items-center justify-between w-10/12 mx-auto">
         <p className="md:text-sm text-white text-[10px]">
-          &copy; 2024 Christpiracy. All rights reserved.
+          &copy; 2024 Christspiracy. All rights reserved.
         </p>
         <div className="flex items-center gap-x-4">
           {footerIcons.map(({ id, img }) => (
             <div
               onClick={() =>
-                handleOpenInNewTab('https://spiritualmealplanner.com/')
+                handleOpenInNewTab("https://spiritualmealplanner.com/")
               }
               key={id}
               className=""
