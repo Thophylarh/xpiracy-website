@@ -7,3 +7,4 @@ export { default as movementImg } from "./movement-img.png";
 export { default as mealImg } from "./meal-img.png";
 export { default as mainLogo } from "./cp-logo.png";
 export { default as youtube } from "./youtube.png";
+export { default as Jesusimg } from "./Jesusimg.png";
