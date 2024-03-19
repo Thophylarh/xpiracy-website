@@ -1,15 +1,15 @@
-import { zig } from "../../assets/png";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import useCreateNewsLetter from "../../hooks/useCreateNewsLetter";
-import { useContext, useEffect } from "react";
-import { AppDataContext } from "../../context/AppContext";
-import { Alert } from "@mui/material";
+import { zig } from '../../assets/png';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import useCreateNewsLetter from '../../hooks/useCreateNewsLetter';
+import { useContext, useEffect } from 'react';
+import { AppDataContext } from '../../context/AppContext';
+import { Alert } from '@mui/material';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
-    .email("Invalid email address")
-    .required("Email is required"),
+    .email('Invalid email address')
+    .required('Email is required'),
 });
 
 const Mail = () => {
@@ -27,19 +27,19 @@ const Mail = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setShowSuccessDiv(false);
-    }, 2000); // 2 seconds
+    }, 9000); // 2 seconds
 
     return () => clearTimeout(timeout);
   }, [showSuccessDiv]);
 
   const formik = useFormik({
     initialValues: {
-      email: "",
-      message: "",
+      email: '',
+      message: '',
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
-      console.log(values, "emaill...");
+      console.log(values, 'emaill...');
       await makePostRequest({
         email: values.email,
       });
