@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import ClaimModal from './ClaimModal'; // Import the ClaimModal component
 import { AppDataContext } from '../../context/AppContext';
 import { handleOpenInNewTab } from '../../utils/handleOpenInNewTab';
+import { mainLogo } from '../../assets/png';
 
 const NavModal = ({ isOpen, closeDrawer }) => {
   const { setIsModalOpen, setClaimModalOpen, handlePifModalOpen } =
@@ -27,7 +28,7 @@ const NavModal = ({ isOpen, closeDrawer }) => {
           <div className="w-11/12 mx-auto ">
             <div className="flex items-center justify-between py-2">
               <div className="">
-                <img src={Logo} alt="" />
+                <img src={mainLogo} alt="" />
               </div>
               <span className="mx-auto close " onClick={closeDrawer}>
                 &times;
