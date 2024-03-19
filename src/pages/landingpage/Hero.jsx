@@ -25,7 +25,7 @@ const Hero = () => {
           <h4 className="text-[14px] md:text-[16px]">WHAT WOULD JESUS DO?</h4>
         </div>
 
-        <h1 className="md:text-[4rem] text-[2rem] font-bold">CHRISTPIRACY</h1>
+        <h1 className="md:text-[4rem] text-[2rem] font-bold">CHRISTSPIRACY</h1>
         <h4 className="md:text-[16px] text-[14px] font-semibold">
           IN THEATRES <span className="text-[#e93c24]">MARCH 20TH, 24TH.</span>{" "}
         </h4>

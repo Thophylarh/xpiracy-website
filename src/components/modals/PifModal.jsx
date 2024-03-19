@@ -188,6 +188,14 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
                   <p className="text-xs text-[#565453]">Gift a Ticket</p>
                 </button>
               </div>
+              <div className="mt-4 space-y-4">
+                <h4 className="text-lg font-bold">Disclaimer</h4>
+                <p className="text-xs ">
+                  The funds from unclaimed Pay-it-Forward tickets will be
+                  utilized for digital streams of the film and creation of
+                  future Christspiracy-related content/films.
+                </p>
+              </div>
             </div>
           </div>
         </Box>
