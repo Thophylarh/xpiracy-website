@@ -53,9 +53,9 @@ const Mail = () => {
         <div className="w-6/12 space-y-6 ">
           <div>
             <h3 className=" text-2xl md:text-6xl font-normal text-white md:w-[400px] w-[350px]">
-              JOIN THE MAILING LIST
+              JOIN THE MAILING LIST.
             </h3>
-            <img src={zig} className="w-8 h-8 md:w-14 md:h-14" alt="" />
+            {/* <img src={zig} className="w-8 h-8 md:w-14 md:h-14" alt="" /> */}
           </div>
         </div>
         <div className="w-11/12 my-4 md:w-6/12 md:my-0">

@@ -1,24 +1,24 @@
-import React, { useState } from 'react';
-import { Modal, Box } from '@mui/material';
-import Slider from '@mui/material/Slider';
-import { love, users } from '../../assets/svgs';
-import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
-import BookModal from './BookModal';
-import useMakePayment from '../../hooks/usePayment';
-import publicIp from 'react-public-ip';
-import CloseIcon from '@mui/icons-material/Close';
+import React, { useState } from "react";
+import { Modal, Box } from "@mui/material";
+import Slider from "@mui/material/Slider";
+import { love, users } from "../../assets/svgs";
+import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
+import BookModal from "./BookModal";
+import useMakePayment from "../../hooks/usePayment";
+import publicIp from "react-public-ip";
+import CloseIcon from "@mui/icons-material/Close";
 import {
   IconButton, // Import IconButton
-} from '@mui/material';
+} from "@mui/material";
 
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: '90%', // Adjusted width for mobile screens
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "90%", // Adjusted width for mobile screens
   maxWidth: 550, // Max width for larger screens
-  bgcolor: 'background.paper',
+  bgcolor: "background.paper",
   boxShadow: 24,
   borderRadius: 5,
   p: 4,
@@ -54,19 +54,19 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
   };
 
   const handleMakePayment = async () => {
-    const ipv4 = (await publicIp.v4()) || '';
+    const ipv4 = (await publicIp.v4()) || "";
     const general = `${window.location.protocol}//${window.location.host}/singlePayment`;
     setCurrency2(0);
     const payload = {
       amount: currency,
-      mode: 'payment',
+      mode: "payment",
       numberOfPeople: sliderValue.toString(),
       ipAddress: ipv4,
       successUrl: general,
       cancelUrl: general,
     };
 
-    console.log(payload, 'sent...');
+    console.log(payload, "sent...");
     await makePostRequest(payload);
   };
 
@@ -90,9 +90,9 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
           <div className="">
             <IconButton
               sx={{
-                position: 'absolute',
-                top: '10px',
-                right: '10px',
+                position: "absolute",
+                top: "10px",
+                right: "10px",
               }}
               onClick={handleClose}
             >
@@ -111,7 +111,7 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
 
               <p className="text-xs text-[#565453] ">
                 Gift free tickets for someone else to watch Christspiracy in
-                theaters.{' '}
+                theaters.{" "}
               </p>
             </div>
 
@@ -125,15 +125,15 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
                   aria-label="Small"
                   valueLabelDisplay="auto"
                   sx={{
-                    color: '#E93C24',
-                    '& .MuiSlider-thumb': {
-                      backgroundColor: '#E93C24',
+                    color: "#E93C24",
+                    "& .MuiSlider-thumb": {
+                      backgroundColor: "#E93C24",
                     },
-                    '& .MuiSlider-track': {
-                      backgroundColor: '#E93C24',
+                    "& .MuiSlider-track": {
+                      backgroundColor: "#E93C24",
                     },
-                    '& .MuiSlider-rail': {
-                      backgroundColor: '#E93C24',
+                    "& .MuiSlider-rail": {
+                      backgroundColor: "#E93C24",
                     },
                   }}
                 />
@@ -177,13 +177,13 @@ const PifModal = ({ open, handleClose, handleBookModalOpen }) => {
 
               <div className="p-2 border-2 rounded-md">
                 <button
-                  className="flex items-center justify-center w-full gap-x-2"
+                  className="flex items-center justify-center w-full gap-x-1"
                   onClick={handleBookModalOpen}
                 >
                   <ConfirmationNumberIcon
-                    sx={{ color: '#565453', fontSize: '18px' }}
+                    sx={{ color: "#565453", fontSize: "18px" }}
                   />
-                  <p className="text-xs text-[#565453]">Book Ticket</p>
+                  <p className="text-xs text-[#565453]">Gift a Ticket</p>
                 </button>
               </div>
             </div>

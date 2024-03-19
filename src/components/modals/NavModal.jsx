@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react';
-import DrawerWrapper from '../wrapper/Wrapper';
-import { Logo } from '../../assets/svgs';
-import { Link } from 'react-router-dom';
-import ClaimModal from './ClaimModal'; // Import the ClaimModal component
-import { AppDataContext } from '../../context/AppContext';
-import { handleOpenInNewTab } from '../../utils/handleOpenInNewTab';
-import { mainLogo } from '../../assets/png';
+import React, { useContext, useState } from "react";
+import DrawerWrapper from "../wrapper/Wrapper";
+import { Logo } from "../../assets/svgs";
+import { Link } from "react-router-dom";
+import ClaimModal from "./ClaimModal"; // Import the ClaimModal component
+import { AppDataContext } from "../../context/AppContext";
+import { handleOpenInNewTab } from "../../utils/handleOpenInNewTab";
+import { mainLogo } from "../../assets/png";
 
 const NavModal = ({ isOpen, closeDrawer }) => {
   const { setIsModalOpen, setClaimModalOpen, handlePifModalOpen } =
@@ -26,16 +26,16 @@ const NavModal = ({ isOpen, closeDrawer }) => {
       <div className="modal-nav h-[100vh]">
         <div className="modal-container bg-[#0f0f10]">
           <div className="w-11/12 mx-auto ">
-            <div className="flex items-center justify-between py-2">
+            <div className="flex items-center justify-between py-4">
               <div className="">
-                <img src={mainLogo} alt="" />
+                <img src={mainLogo} alt="" className="w-12 h-12" />
               </div>
               <span className="mx-auto close " onClick={closeDrawer}>
                 &times;
               </span>
             </div>
           </div>
-          <div className="flex items-center justify-center  flex-col text-[48px] font-bold text-[#fff] py-20 space-y-8">
+          <div className="flex items-center justify-center  flex-col text-[48px] font-bold text-[#fff] py-[4rem] space-y-10">
             <Link to="/" className="hover:text-[#E93c24] text-xl md:text-2xl ">
               Home
             </Link>
@@ -49,7 +49,7 @@ const NavModal = ({ isOpen, closeDrawer }) => {
             <Link
               to=""
               onClick={() =>
-                handleOpenInNewTab('https://spiritualmealplanner.com/')
+                handleOpenInNewTab("https://spiritualmealplanner.com/")
               }
               className="hover:text-[#E93c24] text-xl md:text-2xl flex items-center justify-center"
             >
@@ -58,7 +58,16 @@ const NavModal = ({ isOpen, closeDrawer }) => {
             <Link
               to=""
               onClick={() =>
-                handleOpenInNewTab('https://www.christspiracy.com/')
+                handleOpenInNewTab("")
+              }
+              className="hover:text-[#E93c24] text-xl md:text-2xl flex items-center justify-center"
+            >
+              Join The Movement
+            </Link>
+            <Link
+              to=""
+              onClick={() =>
+                handleOpenInNewTab("https://www.christspiracy.com/")
               }
               className="hover:text-[#E93c24] text-xl md:text-2xl flex items-center justify-center"
             >

@@ -10,7 +10,7 @@ const Journey = () => {
           <div className=" w-full">
            
             <h2 className=" text-[#fff]  md:w-[350px] w-[270px] md:text-6xl text-2xl font-normal">
-              Join The Movement
+              Join The Movement.
             </h2>
             <p className="text-[10px] text-[#d8d6d6] pb-5  md:text-[12px] md:w-[400px] my-4 ">
               Our community on “Skool” rewards you for your activism while

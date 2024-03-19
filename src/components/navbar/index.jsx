@@ -18,15 +18,15 @@ const NavBar = () => {
       <div class="absolute inset-0 bg-gradient-to-b from-black via-black to-transparent opacity-100 h-[40%] w-[100%]"></div>
       <div className="flex items-center justify-between w-11/12 py-2 mx-auto ">
         <div className="">
-          <img src={mainLogo} alt="" />
+          <img src={mainLogo} alt="" className="w-12 h-12" />
         </div>
 
         <div>
           <div
-            className="border-2 rounded-full p-2 text-white border-[#3D3D3D] cursor-pointer"
+            className=" rounded-full p-2 text-white  cursor-pointer"
             onClick={toggleModal}
           >
-            <MenuIcon style={{ color: "#E93C24" }} />
+            <MenuIcon style={{ color: "#E93C24", fontSize: 36 }} />
           </div>
         </div>
       </div>
