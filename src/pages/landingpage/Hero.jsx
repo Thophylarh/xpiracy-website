@@ -7,11 +7,16 @@ import { AppDataContext } from '../../context/AppContext';
 const Hero = () => {
   const [pifModalOpen, setPifModalOpen] = useState(false);
   // const [bookModalOpen, setBookModalOpen] = useState(false);
-  const { bookModalOpen, setBookModalOpen, handleBookModalOpen } =
-    useContext(AppDataContext);
+  const {
+    bookModalOpen,
+    setBookModalOpen,
+    handleBookModalOpen,
+    handlePifModalOpen,
+    handlePifModalClose,
+  } = useContext(AppDataContext);
 
-  const handlePifModalOpen = () => setPifModalOpen(true);
-  const handlePifModalClose = () => setPifModalOpen(false);
+  // const handlePifModalOpen = () => setPifModalOpen(true);
+  // const handlePifModalClose = () => setPifModalOpen(false);
 
   const handleBookModalClose = () => setBookModalOpen(false);
 

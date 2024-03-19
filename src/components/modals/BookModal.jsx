@@ -194,7 +194,9 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
                 <p>{emails.join(', ') || 'empty'}</p>
                 {currency2 === 0 ||
                 emails.length === 0 ||
-                inputValue.trim() === '' ? (
+                emails.length < sliderValue ||
+                inputValue.trim() === '' ||
+                emailError ? (
                   <button
                     disabled={true}
                     className="bg-[#808080] w-full text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-3xl"
