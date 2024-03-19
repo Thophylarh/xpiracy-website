@@ -30,7 +30,10 @@ const NavModal = ({ isOpen, closeDrawer }) => {
               <div className="">
                 <img src={mainLogo} alt="" className="w-12 h-12" />
               </div>
-              <span className="mx-auto close " onClick={closeDrawer}>
+              <span
+                className="mx-auto cursor-pointer close "
+                onClick={closeDrawer}
+              >
                 &times;
               </span>
             </div>
