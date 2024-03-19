@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
-import { Pattern, Yeshua, mealImg, zig } from "../../assets/png";
-import { Lightbible } from "../../assets/svgs";
+import { mealImg, zig } from "../../assets/png";
+
 import { handleOpenInNewTab } from "../../utils/handleOpenInNewTab";
 
 const Spiritual = () => {
   return (
     <div className="">
-      <div className="md:items-center md:justify-between md:w-11/12 md:flex ">
-        <div className="">
+      <div className="md:items-center md:justify-between md:w-11/12 md:flex  ">
+        <div className="w-12/12">
           <div className="">
             <img
               src={mealImg}

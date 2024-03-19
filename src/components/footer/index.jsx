@@ -1,22 +1,25 @@
 import React from "react";
 import { fbIcon, igIcon, xIcon } from "../../assets/svgs";
 import { handleOpenInNewTab } from "../../utils/handleOpenInNewTab";
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 import { youtube } from "../../assets/png";
 const footerIcons = [
   {
     id: 0,
-    img: fbIcon,
+    icon: <FacebookIcon />,
     link: "https://www.facebook.com/christspiracy/",
   },
   {
     id: 1,
-    img: igIcon,
+    icon: <InstagramIcon />,
     link: "https://www.instagram.com/christspiracy/",
   },
   {
     id: 2,
-    img: youtube,
+    icon: <YouTubeIcon />,
     link: "https://www.youtube.com/@christspiracyfilm",
   },
 ];
@@ -28,7 +31,7 @@ const Footer = () => {
           &copy; 2024 Christspiracy. All rights reserved.
         </p>
         <div className="flex items-center gap-x-4">
-          {footerIcons.map(({ id, img }) => (
+          {footerIcons.map(({ id, icon }) => (
             <div
               onClick={() =>
                 handleOpenInNewTab("https://spiritualmealplanner.com/")
@@ -36,7 +39,8 @@ const Footer = () => {
               key={id}
               className=""
             >
-              <img src={img} alt="" className="md:w-20 md:h-20 w-12 h-12" />
+              <button className="bg-white rounded-2xl p-2 cursor-pointer">{icon}</button>
+              {/* <img src={img} alt="" className="md:w-20 md:h-20 w-12 h-12" /> */}
             </div>
           ))}
         </div>
