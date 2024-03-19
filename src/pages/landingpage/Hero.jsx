@@ -1,19 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import PifModal from '../../components/modals/PifModal';
 import BookModal from '../../components/modals/BookModal';
 import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
+import { AppDataContext } from '../../context/AppContext';
 
 const Hero = () => {
   const [pifModalOpen, setPifModalOpen] = useState(false);
-  const [bookModalOpen, setBookModalOpen] = useState(false);
+  // const [bookModalOpen, setBookModalOpen] = useState(false);
+  const { bookModalOpen, setBookModalOpen, handleBookModalOpen } =
+    useContext(AppDataContext);
 
   const handlePifModalOpen = () => setPifModalOpen(true);
   const handlePifModalClose = () => setPifModalOpen(false);
-
-  const handleBookModalOpen = () => {
-    setPifModalOpen(false); // Close PifModal when BookModal opens
-    setBookModalOpen(true);
-  };
 
   const handleBookModalClose = () => setBookModalOpen(false);
 
