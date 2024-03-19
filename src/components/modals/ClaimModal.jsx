@@ -184,7 +184,7 @@ const ClaimModal = () => {
                 }
                 label={
                   <span style={{ color: 'black', fontSize: '12px' }}>
-                    I want to receive email updates from Christspiracy
+                    I want to receive email updates from Christspiracy.
                   </span>
                 }
               />

@@ -1,6 +1,8 @@
 import React from "react";
 import { fbIcon, igIcon, xIcon } from "../../assets/svgs";
 import { handleOpenInNewTab } from "../../utils/handleOpenInNewTab";
+
+import { youtube } from "../../assets/png";
 const footerIcons = [
   {
     id: 0,
@@ -14,8 +16,8 @@ const footerIcons = [
   },
   {
     id: 2,
-    img: xIcon,
-    link: "https://www.facebook.com/christspiracy/",
+    img: youtube,
+    link: "https://www.youtube.com/@christspiracyfilm",
   },
 ];
 const Footer = () => {
@@ -34,7 +36,7 @@ const Footer = () => {
               key={id}
               className=""
             >
-              <img src={img} alt="" className="md:w-20 md:h-20 w-16 h-16" />
+              <img src={img} alt="" className="md:w-20 md:h-20 w-12 h-12" />
             </div>
           ))}
         </div>

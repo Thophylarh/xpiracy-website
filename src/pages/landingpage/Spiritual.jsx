@@ -6,13 +6,14 @@ import { handleOpenInNewTab } from "../../utils/handleOpenInNewTab";
 const Spiritual = () => {
   return (
     <div className="">
-      <div className="items-center justify-between md:w-11/12 md:flex ">
+      <div className="md:items-center md:justify-between md:w-11/12 md:flex ">
         <div className="">
-          <div>
+          <div className="">
             <img
               src={mealImg}
               alt=""
-              className="md:w-[800px] md:h-[500px] w-[400px] h-[300px] "
+              className="md:w-[800px] md:h-[500px] w-[300px] h-[300px] 
+              "
             />
           </div>
         </div>
