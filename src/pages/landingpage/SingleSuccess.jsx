@@ -51,8 +51,7 @@ const SingleSuccess = () => {
         handleOpen={handleOpen}
         handleClose={handleClose}
         title=" Thank you for Paying it Forward!"
-        subTitle="Soon, your friend will receive a ticket code in their inbox.
-        Message them to make sure they don’t miss it!"
+        subTitle="Someone who otherwise would not have been able to watch the film will receive a free ticket. Your generosity helps spread this message far and wide."
       />
     </div>
   );

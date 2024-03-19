@@ -1,17 +1,21 @@
-import React from "react";
-import { fbIcon, igIcon, xIcon } from "../../assets/svgs";
+import React from 'react';
+import { fbIcon, igIcon, xIcon } from '../../assets/svgs';
+import { handleOpenInNewTab } from '../../utils/handleOpenInNewTab';
 const footerIcons = [
   {
     id: 0,
     img: fbIcon,
+    link: 'https://www.facebook.com/christspiracy/',
   },
   {
     id: 1,
     img: igIcon,
+    link: 'https://www.instagram.com/christspiracy/',
   },
   {
     id: 2,
     img: xIcon,
+    link: 'https://www.facebook.com/christspiracy/',
   },
 ];
 const Footer = () => {
@@ -23,7 +27,13 @@ const Footer = () => {
         </p>
         <div className="flex items-center gap-x-4">
           {footerIcons.map(({ id, img }) => (
-            <div key={id} className="">
+            <div
+              onClick={() =>
+                handleOpenInNewTab('https://spiritualmealplanner.com/')
+              }
+              key={id}
+              className=""
+            >
               <img src={img} alt="" className="md:w-20 md:h-20 w-16 h-16" />
             </div>
           ))}
