@@ -10,6 +10,14 @@
   font-family: 'PPFormula';
   src: url('../src/fonts/PPFormula-Medium.otf');
 }
+@font-face {
+  font-family: 'PPFormula';
+  src: url('../src/fonts/PPFormula-Medium.otf');
+}
+@font-face {
+  font-family: 'PPFormulaBold';
+  src: url('../src/fonts/PPFormula-CondensedBold.otf');
+}
 h1,
 h2,
 h3,
@@ -104,8 +112,6 @@ input {
     width: 280px;
     height: 214px;
   }
-
-  
 
   .modal-nav {
     width: 100vw;
