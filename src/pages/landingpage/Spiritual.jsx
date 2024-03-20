@@ -9,8 +9,8 @@ import AppSubText from '../../components/AppSubText/AppSubText';
 const Spiritual = () => {
   return (
     <div className="">
-      <div className="items-center  flex mt-40 justify-center w-[100%] md:px-0 px-4">
-        <div className="space-y-6 ">
+      <div className="items-center  flex md:mt-40 mt-10 justify-center w-[100%] md:px-0 px-4">
+        <div className="space-y-4 ">
           <div className="mt-8">
             <AppBigHeader title="SPIRITUAL MEAL PLANNER." />
           </div>

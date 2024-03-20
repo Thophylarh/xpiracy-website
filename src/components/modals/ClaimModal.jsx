@@ -127,7 +127,7 @@ const ClaimModal = () => {
               onChange={formik.handleChange}
             />
             {formik.touched.email && formik.errors.email ? (
-              <div style={{ color: 'red' }}>{formik.errors.email}</div>
+              <div style={{ color: '#dc4a2b' }}>{formik.errors.email}</div>
             ) : null}
 
             {/* Checkboxes */}
@@ -145,7 +145,7 @@ const ClaimModal = () => {
                     name="checkbox1"
                     checked={formik.values.checkbox1}
                     onChange={formik.handleChange}
-                    style={{ color: '#E93C24' }}
+                    style={{ color: '#dc4a2b' }}
                   />
                 }
                 label={
@@ -162,7 +162,7 @@ const ClaimModal = () => {
                     name="checkbox2"
                     checked={formik.values.checkbox2}
                     onChange={formik.handleChange}
-                    style={{ color: '#E93C24' }}
+                    style={{ color: '#dc4a2b' }}
                   />
                 }
                 label={
@@ -179,7 +179,7 @@ const ClaimModal = () => {
                     name="checkbox3"
                     checked={formik.values.checkbox3}
                     onChange={formik.handleChange}
-                    style={{ color: '#E93C24' }}
+                    style={{ color: '#dc4a2b' }}
                   />
                 }
                 label={
@@ -225,7 +225,7 @@ const ClaimModal = () => {
                   }
                   style={{
                     marginTop: '1rem',
-                    backgroundColor: '#E93C24',
+                    backgroundColor: '#dc4a2b',
                     borderRadius: '40px',
                     color: 'white',
                     padding: '0.5rem 2rem',

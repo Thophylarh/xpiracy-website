@@ -1,18 +1,18 @@
-import { zig } from "../../assets/png";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import useCreateNewsLetter from "../../hooks/useCreateNewsLetter";
-import { useContext, useEffect } from "react";
-import { AppDataContext } from "../../context/AppContext";
-import { Alert } from "@mui/material";
-import AppBtn from "../../components/AppBtn/AppBtn";
-import AppBigHeader from "../../components/AppBigHeader/AppBigHeader";
-import AppSubText from "../../components/AppSubText/AppSubText";
+import { zig } from '../../assets/png';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import useCreateNewsLetter from '../../hooks/useCreateNewsLetter';
+import { useContext, useEffect } from 'react';
+import { AppDataContext } from '../../context/AppContext';
+import { Alert } from '@mui/material';
+import AppBtn from '../../components/AppBtn/AppBtn';
+import AppBigHeader from '../../components/AppBigHeader/AppBigHeader';
+import AppSubText from '../../components/AppSubText/AppSubText';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
-    .email("Invalid email address")
-    .required("Email is required"),
+    .email('Invalid email address')
+    .required('Email is required'),
 });
 
 const Mail = () => {
@@ -37,12 +37,12 @@ const Mail = () => {
 
   const formik = useFormik({
     initialValues: {
-      email: "",
-      message: "",
+      email: '',
+      message: '',
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
-      console.log(values, "emaill...");
+      console.log(values, 'emaill...');
       await makePostRequest({
         email: values.email,
       });
@@ -52,11 +52,11 @@ const Mail = () => {
 
   return (
     <div className="">
-      <div className="items-center w-[100%] px-4 md:px-14 mt-40 mb-20 justify-between block md:flex ">
+      <div className="items-center w-[100%] px-4 md:px-14 md:mt-40 mt-20 mb-20 justify-between block md:flex ">
         <div className="space-y-6 md:w-6/12 ">
           <div>
             <AppBigHeader
-              customClass="md:w-[330px] w-[350px] mb-4 text"
+              customClass="md:w-[320px] w-[350px] mb-4 text"
               title="STAY IN THE KNOW."
             />
             <AppSubText
@@ -105,7 +105,7 @@ const Mail = () => {
               // >
               //   Submitting...
               // </A>
-              <AppBtn title="SignUp For More" />
+              <AppBtn title="Sign Up " />
               // <button
               //   type="submit"
               //   className="bg-[#E93C24] hover:bg-[#f86d5a] rounded-[40px]  p-4 text-white text-sm font-ppeiko "

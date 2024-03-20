@@ -126,13 +126,13 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
                 sx={{
                   color: '#E93C24',
                   '& .MuiSlider-thumb': {
-                    backgroundColor: '#E93C24',
+                    backgroundColor: ' #dc4a2b',
                   },
                   '& .MuiSlider-track': {
-                    backgroundColor: '#E93C24',
+                    backgroundColor: ' #dc4a2b',
                   },
                   '& .MuiSlider-rail': {
-                    backgroundColor: '#E93C24',
+                    backgroundColor: '#dc4a2b',
                   },
                 }}
               />
@@ -184,7 +184,7 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
                   }}
                 />
                 {emailError && (
-                  <p className="text-red-500 pt-3 text-sm">
+                  <p className="text-[#dc4a2b] pt-3 text-sm">
                     You can't add more emails than the current slider value.
                   </p>
                 )}
@@ -207,7 +207,7 @@ const BookModal = ({ open, handleClose, handlePifModalOpen }) => {
                 ) : (
                   <button
                     onClick={handleMakePayment}
-                    className="bg-[#E93C24] w-full cursor-pointer text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-3xl hover:bg-[#f86d5a]"
+                    className="bg-[#dc4a2b] w-full cursor-pointer text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-3xl hover:bg-[#f86d5a]"
                   >
                     <img src={love} alt="" />
                     <p>Pay it Forward</p>

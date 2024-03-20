@@ -1,25 +1,25 @@
-import React, { useContext, useState } from 'react';
-import { Modal, Box } from '@mui/material';
-import Slider from '@mui/material/Slider';
-import { love, users } from '../../assets/svgs';
-import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
-import BookModal from './BookModal';
-import useMakePayment from '../../hooks/usePayment';
-import publicIp from 'react-public-ip';
-import CloseIcon from '@mui/icons-material/Close';
+import React, { useContext, useState } from "react";
+import { Modal, Box } from "@mui/material";
+import Slider from "@mui/material/Slider";
+import { love, users } from "../../assets/svgs";
+import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
+import BookModal from "./BookModal";
+import useMakePayment from "../../hooks/usePayment";
+import publicIp from "react-public-ip";
+import CloseIcon from "@mui/icons-material/Close";
 import {
   IconButton, // Import IconButton
-} from '@mui/material';
-import { AppDataContext } from '../../context/AppContext';
+} from "@mui/material";
+import { AppDataContext } from "../../context/AppContext";
 
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: '90%', // Adjusted width for mobile screens
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "90%", // Adjusted width for mobile screens
   maxWidth: 550, // Max width for larger screens
-  bgcolor: 'background.paper',
+  bgcolor: "background.paper",
   boxShadow: 24,
   borderRadius: 5,
   p: 4,
@@ -45,7 +45,7 @@ const PifModal = ({ open, handleClose }) => {
     const newValue = event.target.value.trim();
     setInputValue(newValue);
 
-    if (newValue === '') {
+    if (newValue === "") {
       setSliderValue(0);
       setCurrency(0);
     } else {
@@ -58,20 +58,20 @@ const PifModal = ({ open, handleClose }) => {
   };
 
   const handleMakePayment = async () => {
-    const ipv4 = (await publicIp.v4()) || '';
+    const ipv4 = (await publicIp.v4()) || "";
     const general = `${window.location.protocol}//${window.location.host}/singlePayment`;
     const faliure = `${window.location.protocol}//${window.location.host}`;
     setCurrency2(0);
     const payload = {
       amount: currency,
-      mode: 'payment',
+      mode: "payment",
       numberOfPeople: sliderValue.toString(),
       ipAddress: ipv4,
       successUrl: general,
       cancelUrl: faliure,
     };
 
-    console.log(payload, 'sent...');
+    console.log(payload, "sent...");
     await makePostRequest(payload);
   };
 
@@ -81,12 +81,6 @@ const PifModal = ({ open, handleClose }) => {
 
   const handleBookTicketClose = () => {
     setBookTicketModalOpen(false);
-  };
-
-  const customInputStyle = {
-    appearance: 'none',
-    WebkitAppearance: 'none' /* for Webkit browsers */,
-    MozAppearance: 'textfield' /* for Firefox */,
   };
 
   return (
@@ -101,9 +95,9 @@ const PifModal = ({ open, handleClose }) => {
           <div className="">
             <IconButton
               sx={{
-                position: 'absolute',
-                top: '10px',
-                right: '10px',
+                position: "absolute",
+                top: "10px",
+                right: "10px",
               }}
               onClick={handleClose}
             >
@@ -121,7 +115,7 @@ const PifModal = ({ open, handleClose }) => {
 
               <p className="text-xs text-[#565453] ">
                 Gift free tickets for someone else to watch Christspiracy in
-                theaters.{' '}
+                theaters.{" "}
               </p>
             </div>
 
@@ -135,15 +129,15 @@ const PifModal = ({ open, handleClose }) => {
                   aria-label="Small"
                   valueLabelDisplay="auto"
                   sx={{
-                    color: '#E93C24',
-                    '& .MuiSlider-thumb': {
-                      backgroundColor: '#E93C24',
+                    color: "#E93C24",
+                    "& .MuiSlider-thumb": {
+                      backgroundColor: "#dc4a2b",
                     },
-                    '& .MuiSlider-track': {
-                      backgroundColor: '#E93C24',
+                    "& .MuiSlider-track": {
+                      backgroundColor: "#dc4a2b",
                     },
-                    '& .MuiSlider-rail': {
-                      backgroundColor: '#E93C24',
+                    "& .MuiSlider-rail": {
+                      backgroundColor: "#dc4a2b",
                     },
                   }}
                 />
@@ -168,7 +162,7 @@ const PifModal = ({ open, handleClose }) => {
             ) : (
               <button
                 onClick={handleMakePayment}
-                className="bg-[#E93C24] cursor-pointer text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-[40px] w-full"
+                className="bg-[#dc4a2b] cursor-pointer text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-[40px] w-full"
               >
                 <img src={love} alt="" />
                 {loading ? <p>Redirecting....</p> : <p>Pay it Forward</p>}
@@ -188,16 +182,22 @@ const PifModal = ({ open, handleClose }) => {
 
               <div
                 onClick={handleBookModalOpen}
-                className="p-2 border-[1px] py-4 border-[#565453] rounded-md"
+                className="  bg-[#dc4a2b] cursor-pointer font-ppeiko rounded-[40px] p-4 hover:bg-[#f86d5a] text-sm  md:text-[16px] "
               >
                 <button className="flex items-center justify-center w-full gap-x-1">
                   <div>
                     <ConfirmationNumberIcon
-                      sx={{ color: '#565453', fontSize: '18px' }}
+                      sx={{ color: "white", fontSize: "18px" }}
                     />
                   </div>
-                  <p className="text-xs text-[#565453]">Gift a Ticket</p>
+                  <p className="text-white ">Gift a Ticket</p>
                 </button>
+              </div>
+              <div className="mt-4 space-y-2">
+                <p className="text-xs ">
+                  Pay it Forward and book a movie ticket for a loved one to
+                  watch Christspiracy in theaters.
+                </p>
               </div>
               <div className="mt-4 space-y-2">
                 <h4 className="text-lg font-bold">Disclaimer</h4>
