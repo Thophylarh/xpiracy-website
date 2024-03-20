@@ -34,7 +34,7 @@ const Hero = () => {
           CHRISTSPIRACY
         </h1>
         <h4 className="md:text-[16px] text-[14px] font-semibold">
-          IN Theaters <span className="text-[#dc4a2b]">MARCH 20TH, 24TH.</span>{" "}
+          In Theaters <span className="text-[#dc4a2b]">MARCH 20TH, 24TH.</span>{" "}
         </h4>
 
         <p className="text-[12px] text-[#d8d6d6] md:w-[400px] my-2">
