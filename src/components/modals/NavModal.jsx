@@ -26,9 +26,6 @@ const NavModal = ({ isOpen, closeDrawer }) => {
     <DrawerWrapper>
       <div className="modal-nav h-[100vh]">
         <div className="modal-container bg-[#0f0f10]">
-          <div className="w-11/12 mx-auto ">
-            <div className="flex items-center justify-between py-4"></div>
-          </div>
           <div className="flex items-center justify-center  flex-col text-[48px]  text-[#fff] py-[6rem] space-y-10">
             <Link to="/" className="hover:text-[#E93c24] text-xl md:text-2xl ">
               Home
