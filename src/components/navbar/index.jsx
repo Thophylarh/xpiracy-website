@@ -16,13 +16,17 @@ const NavBar = () => {
 
   return (
     <div className="">
-      <div class="absolute inset-0 bg-gradient-to-b from-black via-black to-transparent opacity-100 h-[40%] w-[100%]">
+      <div class="absolute inset-0 bg-gradient-to-b from-black via-black to-transparent opacity-100 md:h-[40%] h-[35%] w-[100%]">
         <div
           style={{ zIndex: 99 }}
           className="flex mt-10  items-center justify-between w-11/12 py-2 mx-auto "
         >
           <div className="">
-            <img src={mainLogo} alt="" />
+            <img
+              src={mainLogo}
+              alt=""
+              class="md:w-[80px] w-[40px]  h-auto object-cover object-center"
+            />
           </div>
 
           {isModalOpen ? (

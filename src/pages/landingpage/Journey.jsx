@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
-import { movementImg } from "../../assets/png";
-import { handleOpenInNewTab } from "../../utils/handleOpenInNewTab";
-import AppBtn from "../../components/AppBtn/AppBtn";
-import AppBigHeader from "../../components/AppBigHeader/AppBigHeader";
-import AppSubText from "../../components/AppSubText/AppSubText";
+import { Link } from 'react-router-dom';
+import { movementImg } from '../../assets/png';
+import { handleOpenInNewTab } from '../../utils/handleOpenInNewTab';
+import AppBtn from '../../components/AppBtn/AppBtn';
+import AppBigHeader from '../../components/AppBigHeader/AppBigHeader';
+import AppSubText from '../../components/AppSubText/AppSubText';
 
 const Journey = () => {
   return (
@@ -31,7 +31,7 @@ const Journey = () => {
     // </div>
 
     <div className="">
-      <div className="items-center  flex mt-24 justify-center w-[100%] md:px-0 px-4">
+      <div className="items-center  flex md:mt-24 mt-10 justify-center w-[100%] md:px-0 px-4">
         <div className="space-y-6 ">
           <div className="mt-8">
             <AppBigHeader title=" JOIN THE MOVEMENT." />
@@ -45,7 +45,7 @@ const Journey = () => {
 
             <AppBtn
               onClick={() =>
-                handleOpenInNewTab("https://www.skool.com/christspiracy/about")
+                handleOpenInNewTab('https://www.skool.com/christspiracy/about')
               }
               title="Join Movement Now"
             />

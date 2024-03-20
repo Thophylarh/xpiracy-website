@@ -9,7 +9,7 @@ import { mainLogo } from '../../assets/png';
 import AppBtn from '../AppBtn/AppBtn';
 
 const NavModal = ({ isOpen, closeDrawer }) => {
-  const { setIsModalOpen, setClaimModalOpen, handlePifModalOpen } =
+  const { setIsModalOpen, setClaimModalOpen, handlePifModalOpen, toggleModal } =
     useContext(AppDataContext);
 
   const handleClaimTicketClick = () => {
@@ -27,13 +27,17 @@ const NavModal = ({ isOpen, closeDrawer }) => {
       <div className="modal-nav h-[100vh]">
         <div className="modal-container bg-[#0f0f10]">
           <div className="flex items-center justify-center  flex-col text-[48px]  text-[#fff] py-[6rem] space-y-10">
-            <Link to="/" className="hover:text-[#E93c24] text-xl md:text-2xl ">
+            <Link
+              onClick={toggleModal}
+              to="/"
+              className="hover:text-[#E93c24] text-xl md:text-2xl "
+            >
               Home
             </Link>
             <Link
               onClick={handlePaayItFwdModal}
               to=""
-              className="hover:text-[#E93c24] text-xl md:text-2xl "
+              className="hover:text-[#dc4a2b] text-xl md:text-2xl "
             >
               Pay It Forward
             </Link>
@@ -42,7 +46,7 @@ const NavModal = ({ isOpen, closeDrawer }) => {
               onClick={() =>
                 handleOpenInNewTab('https://spiritualmealplanner.com/')
               }
-              className="hover:text-[#E93c24] text-xl md:text-2xl flex items-center justify-center"
+              className="hover:text-[#dc4a2b] text-xl md:text-2xl flex items-center justify-center"
             >
               Get Meal Planner
             </Link>
@@ -51,22 +55,24 @@ const NavModal = ({ isOpen, closeDrawer }) => {
               onClick={() =>
                 handleOpenInNewTab('https://www.skool.com/christspiracy/about')
               }
-              className="hover:text-[#E93c24] text-xl md:text-2xl flex items-center justify-center"
+              className="hover:text-[#dc4a2b] text-xl md:text-2xl flex items-center justify-center"
             >
               Join The Movement
             </Link>
             <Link
               to=""
               onClick={() =>
-                handleOpenInNewTab('https://www.christspiracy.com/')
+                handleOpenInNewTab(
+                  'https://www.youtube.com/watch?v=PlHaV5rEBN8&ab_channel=MoviePass'
+                )
               }
-              className="hover:text-[#E93c24] text-xl md:text-2xl flex items-center justify-center"
+              className="hover:text-[#dc4a2b] text-xl md:text-2xl flex items-center justify-center"
             >
               Watch Trailer
             </Link>
             <button
               onClick={handleClaimTicketClick}
-              className="bg-[#E93C24] cursor-pointer py-3 hover:text-[#fff] text-xl md:text-2xl text-center text-white  px-6 rounded-[40px] flex items-center justify-center"
+              className="bg-[#dc4a2b] cursor-pointer py-3 hover:text-[#fff] text-xl md:text-2xl text-center text-white  px-6 rounded-[40px] flex items-center justify-center"
             >
               Claim Ticket
             </button>

@@ -163,9 +163,9 @@ input {
     font-size: 28px;
     font-weight: bold;
   }
-.text{
-  color: red;
-}
+  .text {
+    color: #dc4a2b;
+  }
   .close:hover,
   .close:focus {
     color: #b5afaf;

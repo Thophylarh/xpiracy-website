@@ -83,12 +83,6 @@ const PifModal = ({ open, handleClose }) => {
     setBookTicketModalOpen(false);
   };
 
-  const customInputStyle = {
-    appearance: 'none',
-    WebkitAppearance: 'none' /* for Webkit browsers */,
-    MozAppearance: 'textfield' /* for Firefox */,
-  };
-
   return (
     <>
       <Modal
@@ -137,13 +131,13 @@ const PifModal = ({ open, handleClose }) => {
                   sx={{
                     color: '#E93C24',
                     '& .MuiSlider-thumb': {
-                      backgroundColor: '#E93C24',
+                      backgroundColor: '#dc4a2b',
                     },
                     '& .MuiSlider-track': {
-                      backgroundColor: '#E93C24',
+                      backgroundColor: '#dc4a2b',
                     },
                     '& .MuiSlider-rail': {
-                      backgroundColor: '#E93C24',
+                      backgroundColor: '#dc4a2b',
                     },
                   }}
                 />
@@ -168,7 +162,7 @@ const PifModal = ({ open, handleClose }) => {
             ) : (
               <button
                 onClick={handleMakePayment}
-                className="bg-[#E93C24] cursor-pointer text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-[40px] w-full"
+                className="bg-[#dc4a2b] cursor-pointer text-white px-8 py-2 justify-center flex items-center gap-x-2 rounded-[40px] w-full"
               >
                 <img src={love} alt="" />
                 {loading ? <p>Redirecting....</p> : <p>Pay it Forward</p>}
