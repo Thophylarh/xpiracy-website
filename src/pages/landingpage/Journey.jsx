@@ -11,7 +11,8 @@ const Journey = () => {
             <img
               src={movementImg}
               alt=""
-              className="md:h-[400px] md:w-[400px] w-[200px] h-[200px] red-tint"
+              className="md:h-[400px] md:w-[400px] w-[200px] h-[200px] red-tint object-cover"
+              style={{ objectFit: "contain" }}
             />
           </div>
           <div className="w-full">
