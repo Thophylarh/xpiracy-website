@@ -182,7 +182,7 @@ const PifModal = ({ open, handleClose }) => {
 
               <div
                 onClick={handleBookModalOpen}
-                className="  bg-[#dc4a2b] cursor-pointer font-ppeiko rounded-[40px] p-4 hover:bg-[#f86d5a] text-sm  md:text-[16px] "
+                className="  bg-[#dc4a2b] cursor-pointer font-ppeiko rounded-[40px] p-[12px] hover:bg-[#f86d5a] text-sm  md:text-[16px] "
               >
                 <button className="flex items-center justify-center w-full gap-x-1">
                   <div>
