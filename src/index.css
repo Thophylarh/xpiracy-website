@@ -101,6 +101,13 @@ input {
     position: relative;
     z-index: 1;
   }
+  .mobile-img .flex,
+  .mobile-img h1,
+  .mobile-img h4,
+  .mobile-img button {
+    position: relative;
+    z-index: 1;
+  }
   .img-border-bible {
     width: 335.502px;
     height: 462.586px;
