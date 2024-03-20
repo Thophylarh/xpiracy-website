@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import NavModal from '../modals/NavModal';
 import logo from '../../assets/svgs/logo.svg';
 import { AppDataContext } from '../../context/AppContext';
@@ -18,19 +19,24 @@ const NavBar = () => {
       <div class="absolute inset-0 bg-gradient-to-b from-black via-black to-transparent opacity-100 h-[40%] w-[100%]">
         <div
           style={{ zIndex: 999 }}
-          className="flex  items-center justify-between w-11/12 py-2 mx-auto "
+          className="flex mt-10  items-center justify-between w-11/12 py-2 mx-auto "
         >
           <div className="">
-            <img src={mainLogo} alt="" className="w-12 h-12" />
+            <img src={mainLogo} alt="" />
           </div>
 
           <div>
-            <div
-              className=" rounded-full p-2 text-white  cursor-pointer"
-              onClick={toggleModal}
-            >
-              <MenuIcon style={{ color: '#E93C24', fontSize: 36 }} />
-            </div>
+            {isModalOpen ? (
+              <CloseIcon
+                onClick={toggleModal}
+                style={{ color: '#E93C24', fontSize: 36, cursor: 'pointer' }}
+              />
+            ) : (
+              <MenuIcon
+                onClick={toggleModal}
+                style={{ color: '#E93C24', fontSize: 36, cursor: 'pointer' }}
+              />
+            )}
           </div>
         </div>
       </div>

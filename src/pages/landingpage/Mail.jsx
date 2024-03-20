@@ -5,6 +5,9 @@ import useCreateNewsLetter from '../../hooks/useCreateNewsLetter';
 import { useContext, useEffect } from 'react';
 import { AppDataContext } from '../../context/AppContext';
 import { Alert } from '@mui/material';
+import AppBtn from '../../components/AppBtn/AppBtn';
+import AppBigHeader from '../../components/AppBigHeader/AppBigHeader';
+import AppSubText from '../../components/AppSubText/AppSubText';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -48,14 +51,15 @@ const Mail = () => {
   });
 
   return (
-    <div className="w-11/12 pb-8 mx-auto md:w-9/12 cp-container">
-      <div className="items-center justify-between block md:flex ">
+    <div className="">
+      <div className="items-center w-[100%] px-14 mt-40 mb-20 justify-between block md:flex ">
         <div className="w-6/12 space-y-6 ">
           <div>
-            <h3 className=" text-2xl md:text-6xl font-normal text-white md:w-[400px] w-[350px]">
-              JOIN THE MAILING LIST.
-            </h3>
-            {/* <img src={zig} className="w-8 h-8 md:w-14 md:h-14" alt="" /> */}
+            <AppBigHeader
+              customClass="md:w-[330px] w-[350px] mb-4"
+              title="STAY IN THE KNOW."
+            />
+            <AppSubText title="Receive extra content, community, resources, and more." />
           </div>
         </div>
         <div className="w-full my-4 md:w-6/12 md:my-0">
@@ -89,20 +93,22 @@ const Mail = () => {
             </div>
 
             {loading ? (
-              <button
-                type="submit"
-                className="bg-[#808080]  hover:bg-[#f86d5a] rounded-[40px]  p-4 text-white  font-ppeiko  text-sm"
-                disabled={true}
-              >
-                Submitting...
-              </button>
+              <AppBtn title="Submitting..." customClass="bg-[#808080]" />
             ) : (
-              <button
-                type="submit"
-                className="bg-[#E93C24] hover:bg-[#f86d5a] rounded-[40px]  p-4 text-white text-sm font-ppeiko "
-              >
-                SignUp For More
-              </button>
+              // <A
+              //   type="submit"
+              //   className="bg-[#808080]  hover:bg-[#f86d5a] rounded-[40px]  p-4 text-white  font-ppeiko  text-sm"
+              //   disabled={true}
+              // >
+              //   Submitting...
+              // </A>
+              <AppBtn title="SignUp For More" />
+              // <button
+              //   type="submit"
+              //   className="bg-[#E93C24] hover:bg-[#f86d5a] rounded-[40px]  p-4 text-white text-sm font-ppeiko "
+              // >
+              //   SignUp For More
+              // </button>
             )}
           </form>
         </div>

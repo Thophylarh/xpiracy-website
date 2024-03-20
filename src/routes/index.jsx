@@ -6,6 +6,7 @@ import Home from '../pages/landingpage/Home';
 import SingleSuccess from '../pages/landingpage/SingleSuccess';
 
 import MultipleEmailPayment from '../pages/MultipleEmailPayment';
+import ClaimTicketPage from '../pages/landingpage/ClaimTicketPage';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
           { element: <Home />, path: '/' },
           { element: <SingleSuccess />, path: '/singlePayment' },
           { element: <MultipleEmailPayment />, path: '/multiPayment' },
+          { element: <ClaimTicketPage />, path: '/claimticket' },
         ],
       },
     ],

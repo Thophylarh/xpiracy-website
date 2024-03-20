@@ -1,11 +1,15 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import PifModal from '../../components/modals/PifModal';
 import BookModal from '../../components/modals/BookModal';
 import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 import { AppDataContext } from '../../context/AppContext';
+import ClaimModal from '../../components/modals/ClaimModal';
+import { useNavigate } from 'react-router-dom';
+import ClaimModal2 from '../../components/modals/ClaimModal2';
 
-const Hero = () => {
+const ClaimTicketPage = () => {
   const [pifModalOpen, setPifModalOpen] = useState(false);
+  const navigate = useNavigate();
   // const [bookModalOpen, setBookModalOpen] = useState(false);
   const {
     bookModalOpen,
@@ -14,13 +18,23 @@ const Hero = () => {
     handlePifModalOpen,
     handlePifModalClose,
   } = useContext(AppDataContext);
+  const [claimModalOpen, setClaimModalOpen] = useState(false);
 
-  // const handlePifModalOpen = () => setPifModalOpen(true);
-  // const handlePifModalClose = () => setPifModalOpen(false);
+  const closeClaimModal = () => {
+    setClaimModalOpen(false);
+    navigate('/');
+  };
+
+  useEffect(() => {
+    setClaimModalOpen(true);
+  }, []);
+
+  const handleClose = () => {
+    setClaimModalOpen(false);
+    navigate('/');
+  };
 
   const handleBookModalClose = () => setBookModalOpen(false);
-
-  // Determine which image to display based on viewport width
 
   return (
     <div className="flex justify-center text-white h-[80vh]">
@@ -30,9 +44,7 @@ const Hero = () => {
           <h4 className="text-[14px] md:text-[16px]">WHAT WOULD JESUS DO?</h4>
         </div>
 
-        <h1 className="md:text-[4rem] text-[2rem]  font-ppeikoBold">
-          CHRISTSPIRACY
-        </h1>
+        <h1 className="md:text-[4rem] text-[2rem] font-bold">CHRISTSPIRACY</h1>
         <h4 className="md:text-[16px] text-[14px] font-semibold">
           IN THEATRES <span className="text-[#e93c24]">MARCH 20TH, 24TH.</span>{' '}
         </h4>
@@ -58,8 +70,9 @@ const Hero = () => {
         handleBookModalOpen={handleBookModalOpen}
       />
       <BookModal open={bookModalOpen} handleClose={handleBookModalClose} />
+      <ClaimModal2 claimModalOpen={claimModalOpen} handleClose={handleClose} />
     </div>
   );
 };
 
-export default Hero;
+export default ClaimTicketPage;
