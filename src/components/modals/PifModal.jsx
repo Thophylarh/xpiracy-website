@@ -172,11 +172,11 @@ const PifModal = ({ open, handleClose }) => {
             <div className="mt-6 text-black ">
               <div className="mb-8 space-y-2">
                 <h4 className="text-lg font-bold">
-                  Gift Your Loved One a Ticket
+                  Gift Your Loved One a Ticket.
                 </h4>
                 <p className="text-xs ">
-                  Pay it forward and book a movie ticket for someone dear to you
-                  to watch this at the movie theaters.
+                  Pay it Forward and book a movie ticket for a loved one to
+                  watch Christspiracy in theaters.
                 </p>
               </div>
 
@@ -193,12 +193,7 @@ const PifModal = ({ open, handleClose }) => {
                   <p className="text-white ">Gift a Ticket</p>
                 </button>
               </div>
-              <div className="mt-4 space-y-2">
-                <p className="text-xs ">
-                  Pay it Forward and book a movie ticket for a loved one to
-                  watch Christspiracy in theaters.
-                </p>
-              </div>
+
               <div className="mt-4 space-y-2">
                 <h4 className="text-lg font-bold">Disclaimer</h4>
                 <p className="text-xs ">
