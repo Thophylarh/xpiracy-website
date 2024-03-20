@@ -1,18 +1,18 @@
-import { zig } from '../../assets/png';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import useCreateNewsLetter from '../../hooks/useCreateNewsLetter';
-import { useContext, useEffect } from 'react';
-import { AppDataContext } from '../../context/AppContext';
-import { Alert } from '@mui/material';
-import AppBtn from '../../components/AppBtn/AppBtn';
-import AppBigHeader from '../../components/AppBigHeader/AppBigHeader';
-import AppSubText from '../../components/AppSubText/AppSubText';
+import { zig } from "../../assets/png";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import useCreateNewsLetter from "../../hooks/useCreateNewsLetter";
+import { useContext, useEffect } from "react";
+import { AppDataContext } from "../../context/AppContext";
+import { Alert } from "@mui/material";
+import AppBtn from "../../components/AppBtn/AppBtn";
+import AppBigHeader from "../../components/AppBigHeader/AppBigHeader";
+import AppSubText from "../../components/AppSubText/AppSubText";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
-    .email('Invalid email address')
-    .required('Email is required'),
+    .email("Invalid email address")
+    .required("Email is required"),
 });
 
 const Mail = () => {
@@ -37,12 +37,12 @@ const Mail = () => {
 
   const formik = useFormik({
     initialValues: {
-      email: '',
-      message: '',
+      email: "",
+      message: "",
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
-      console.log(values, 'emaill...');
+      console.log(values, "emaill...");
       await makePostRequest({
         email: values.email,
       });
@@ -52,17 +52,20 @@ const Mail = () => {
 
   return (
     <div className="">
-      <div className="items-center w-[100%] px-14 mt-40 mb-20 justify-between block md:flex ">
-        <div className="w-6/12 space-y-6 ">
+      <div className="items-center w-[100%] px-4 md:px-14 mt-40 mb-20 justify-between block md:flex ">
+        <div className="space-y-6 md:w-6/12 ">
           <div>
             <AppBigHeader
-              customClass="md:w-[330px] w-[350px] mb-4"
+              customClass="md:w-[330px] w-[350px] mb-4 text"
               title="STAY IN THE KNOW."
             />
-            <AppSubText title="Receive extra content, community, resources, and more." />
+            <AppSubText
+              customClass="w-full"
+              title="Receive extra content, community, resources, and more."
+            />
           </div>
         </div>
-        <div className="w-full my-4 md:w-6/12 md:my-0">
+        <div className="w-[330px] my-4 md:w-6/12 md:my-0">
           <form
             onSubmit={formik.handleSubmit}
             className="p-8 space-y-4 form-bg"
