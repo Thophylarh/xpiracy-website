@@ -18,26 +18,34 @@ const NavBar = () => {
     <div className="">
       <div class="absolute inset-0 bg-gradient-to-b from-black via-black to-transparent opacity-100 h-[40%] w-[100%]">
         <div
-          style={{ zIndex: 999 }}
+          style={{ zIndex: 99 }}
           className="flex mt-10  items-center justify-between w-11/12 py-2 mx-auto "
         >
           <div className="">
             <img src={mainLogo} alt="" />
           </div>
 
-          <div>
-            {isModalOpen ? (
-              <CloseIcon
-                onClick={toggleModal}
-                style={{ color: '#E93C24', fontSize: 36, cursor: 'pointer' }}
-              />
-            ) : (
-              <MenuIcon
-                onClick={toggleModal}
-                style={{ color: '#E93C24', fontSize: 36, cursor: 'pointer' }}
-              />
-            )}
-          </div>
+          {isModalOpen ? (
+            <CloseIcon
+              onClick={toggleModal}
+              style={{
+                color: '#E93C24',
+                zIndex: 9999,
+                fontSize: 36,
+                cursor: 'pointer',
+              }}
+            />
+          ) : (
+            <MenuIcon
+              onClick={toggleModal}
+              style={{
+                color: '#E93C24',
+                zIndex: 9999,
+                fontSize: 36,
+                cursor: 'pointer',
+              }}
+            />
+          )}
         </div>
       </div>
 
