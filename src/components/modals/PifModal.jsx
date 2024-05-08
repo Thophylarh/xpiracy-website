@@ -110,7 +110,7 @@ const PifModal = ({ open, handleClose }) => {
               {loading && <p>loading......</p>}
 
               <p className="text-[16px] font-bold">
-                Pay It Forward To A Stranger.
+              Gift someone free tickets to watch Christspiracy in theaters.
               </p>
 
               <p className="text-xs text-[#565453] ">
